@@ -10,7 +10,7 @@ export default function Endpoint(props) {
     const [response, setResponse] = React.useState(null);
     const [loading, setLoading] = React.useState(false);
 
-    const url = "https://decryptor-329419.web.app/api/v1";
+    const url = "https://decryptor.xyz/api/v1";
 
     const getApiUrl = () => {
         var apiUrl = url;
