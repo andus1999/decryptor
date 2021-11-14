@@ -21,7 +21,9 @@ export default function ApiEndpoints(props) {
                 margin: '0 auto',
                 maxWidth: '1100px',
             }}>
-                {props.user ? <CardContainer style={{maxWidth: '550px'}}>
+                {props.user ? <CardContainer style={{
+                    maxWidth: '550px',
+                    textAlign: 'center',}}>
                     <Card variant='outlined'>
                         <h3 style={{padding: '20px'}}>You need to authorize all API requests with your API key</h3>
                         <p style={{padding: '20px 20px 10px'}}>Every request must contain the following header:</p>

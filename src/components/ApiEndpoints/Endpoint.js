@@ -99,7 +99,10 @@ export default function Endpoint(props) {
         }
     })
     return (
-        <CardContainer style={{maxWidth: '550px'}}>
+        <CardContainer style={{
+            maxWidth: '550px',
+            textAlign: 'center',
+        }}>
             <Card variant='outlined'>
                 <h1 style={{padding: '10px'}}>{props.data.title}</h1>
                 <p style={{
