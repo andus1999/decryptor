@@ -1,0 +1,71 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@aws-amplify/ui-react": "^1.2.20",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@material-ui/core": "^4.12.3",
+    "@mui/material": "^5.0.6",
+    "@mui/styles": "^5.0.1",
+    "@mui/x-data-grid": "^5.0.0-beta.7",
+    "@stripe/react-stripe-js": "^1.6.0",
+    "@stripe/stripe-js": "^1.21.1",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "alias": "^0.0.5",
+    "aws-amplify": "^4.3.2",
+    "chart.js": "^3.5.1",
+    "chartjs-adapter-date-fns": "^2.0.0",
+    "date-fns": "^2.25.0",
+    "express": "^4.17.1",
+    "file-loader": "^6.2.0",
+    "firebase": "^9.1.3",
+    "firebase-tools": "^9.21.0",
+    "firebaseui": "^5.0.0",
+    "git": "^0.1.5",
+    "mui": "^0.0.1",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^3.0.5",
+    "react-charts": "^3.0.0-beta.33",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "^4.0.3",
+    "react-scroll": "^1.8.4",
+    "rumble-charts": "^4.0.0",
+    "stripe": "^8.186.0",
+    "styled-components": "^5.3.1",
+    "web-vitals": "^1.1.2",
+    "yarn": "^1.22.15"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
