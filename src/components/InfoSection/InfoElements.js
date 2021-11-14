@@ -4,10 +4,6 @@ import { Colors } from '../../styles/Colors'
 export const InfoContainer = styled.div`
     color: ${Colors.white};
     background: ${({lightBg}) => (lightBg ? Colors.white : Colors.black)};
-
-    @media screen and (max-width: 768px) {
-        padding: 100px 0;
-    }
 `;
 
 export const InfoWrapper = styled.div`
