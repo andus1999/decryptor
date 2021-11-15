@@ -71,11 +71,7 @@ function App() {
           setBitcoinMarketCap(data.market_data.market_cap)
         }
         const prediction = data['prediction']
-        const now = new Date();
-        const ts = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0)/1000-24*3600;
-        if (data.market_data.timestamp !== ts) {
-          return;
-        }
+
         let obj = {};
         obj.id = data.id;
         obj.ticker = data.ticker;
@@ -122,7 +118,7 @@ function App() {
           <Route path="/model" render={() => <Model user={user}/>} exact/>
           <Route path="/api" render={() => <Api user={user}/>} exact/>
           <Route path="/sign-in" render={() => <Login user={user}/>} exact/>
-            <Route path="/pay" render={() => <Payments user={user}/>} exact/>
+          <Route path="/pay" render={() => <Payments user={user}/>} exact/>
         </Switch>
       </Router>
     </ThemeProvider>
