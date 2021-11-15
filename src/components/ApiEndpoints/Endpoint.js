@@ -10,6 +10,7 @@ export default function Endpoint(props) {
     const [variables, setVariables] = React.useState({});
     const [response, setResponse] = React.useState(null);
     const [loading, setLoading] = React.useState(false);
+    const analytics = getAnalytics();
 
     const url = "https://decryptor.xyz/api/v1";
 
