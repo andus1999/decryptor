@@ -5,10 +5,12 @@ import TextField from '@mui/material/TextField';
 import { DefaultButton } from '../ButtonElement';
 import CircularProgress from '@mui/material/CircularProgress';
 import { getAnalytics, logEvent } from "firebase/analytics";
+import Collapse from '@mui/material/Collapse';
 
 export default function Endpoint(props) {
     const [variables, setVariables] = React.useState({});
     const [response, setResponse] = React.useState(null);
+    const [hideResponse, setHideResponse] = React.useState(true);
     const [loading, setLoading] = React.useState(false);
     const analytics = getAnalytics();
 
@@ -32,7 +34,13 @@ export default function Endpoint(props) {
         setVariables(variables);
     }
 
-    const onClick = async () => {
+    const onClick = async (e) => {
+        e.preventDefault();
+        if(hideResponse === false){
+            setHideResponse(true);
+            return;
+        }
+
         logEvent(analytics, 'endpoint_request', props.user);
         setLoading(true)
         const apiUrl = getApiUrl()
@@ -45,10 +53,12 @@ export default function Endpoint(props) {
         fetch(apiUrl, params)
         .then(response => response.text())
         .then(text =>{
+            setHideResponse(false)
             setResponse(text)
             setLoading(false)
         })
         .catch(()=>{
+            setHideResponse(false)
             setResponse('Sorry, an error occured.')
             setLoading(false)
         })        
@@ -68,19 +78,19 @@ export default function Endpoint(props) {
     props.data.endpoint.forEach((item, index) => {
         if (index === 0) {
             endpoint.push(
-                <div style={container}>
+                <div style={container} key={'link'}>
                     <p style={{color: Colors.grey}}>{url}</p>
                 </div>
             )
         }
         endpoint.push(
-            <div style={container}>
+            <div style={container} key={'slash'+index}>
                 <h3 style={text}>/</h3>
             </div>
         )
         if(item.startsWith(':')){
             endpoint.push(
-                <div style={container}>
+                <div style={container} key={'url-component'+index}>
                     <TextField
                         size="small"
                         onChange={onChange(item)}
@@ -95,7 +105,7 @@ export default function Endpoint(props) {
             )
         } else {
             endpoint.push(
-                <div style={container}>
+                <div style={container} key={'url-component'+index}>
                     <h3 style={text}>{item}</h3>
                 </div>
             )
@@ -112,35 +122,41 @@ export default function Endpoint(props) {
                     color: Colors.primary,
                     padding: '10px',
                     lineHeight: '30px'}}>{props.data.action}</p>
-                <div>{endpoint}</div>
-                {props.user && <div style={{
-                    padding: '30px',
-                    textAlign: 'center',}}>
-                        {loading ? (
-                            <CircularProgress/>
-                        ):(
-                            <DefaultButton style={{
-                                display: 'inline-block',
-                            }}
-                            onClick={onClick}>Call</DefaultButton>
-                        )}
-                </div>}
-                
-                {(response && props.user) &&
-                <div>                           
+                <form onSubmit={onClick} key='test'>
+                    <div>{endpoint}</div>
+                    {props.user && <div style={{
+                        padding: '30px',
+                        textAlign: 'center',}}>
+                            {loading ? (
+                                <CircularProgress/>
+                            ):( <>
+                                    {hideResponse ? (
+                                        <DefaultButton style={{
+                                            display: 'inline-block',
+                                        }}>Call</DefaultButton>
+                                    ):(
+                                        <DefaultButton style={{
+                                            display: 'inline-block',
+                                        }}>Clear</DefaultButton>
+                                    )}
+                                </>
+                            )}
+                    </div>}
+                </form>
+                <Collapse in={!hideResponse}>
                     <h2 style={{
                         textAlign: 'center',
                         padding: '20px'}}>Response</h2>   
                     <div style={{
                         overflowY: 'auto',
                         overflowX: 'hidden',
-                        maxHeight: '300px',
+                        height: '200px',
                         overflowWrap: 'break-word',
                         padding: '10px',
                     }}>
                         {response}
                     </div>
-                </div>}
+                </Collapse>
             </Card>       
         </CardContainer>
     )
