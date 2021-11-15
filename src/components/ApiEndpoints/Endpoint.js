@@ -40,8 +40,9 @@ export default function Endpoint(props) {
             setHideResponse(true);
             return;
         }
-
+        
         logEvent(analytics, 'endpoint_request', props.user);
+        setResponse(null)
         setLoading(true)
         const apiUrl = getApiUrl()
         console.log(apiUrl)
