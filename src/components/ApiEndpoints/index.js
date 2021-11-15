@@ -5,8 +5,8 @@ import { Colors } from '../../styles/Colors'
 import {Card, CardContainer} from '../CardElements'
 
 export default function ApiEndpoints(props) {
-    const endpoints = data.map((item) => {
-        return <Endpoint data={item} user={props.user}/>
+    const endpoints = data.map((item, index) => {
+        return <Endpoint key={'endpoint'+index} data={item} user={props.user}/>
     })
     return (
         <div style={{
