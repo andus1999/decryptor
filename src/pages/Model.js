@@ -27,13 +27,13 @@ const Model = (props) => {
         window.scrollTo(0,0)        
     }, [db])
     return (
-        <>
+        <div style={{backgroundColor: 'white'}}>
             <LogoBanner user={props.user}/>
             <InfoSection {...modelDescription}/>
             <Correlation modelData = {modelData}/>
             <InfoSection {...dataDescription}/>
             <Footer/>
-        </>
+        </div>
     )
 }
 

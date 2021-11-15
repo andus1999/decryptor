@@ -36,7 +36,7 @@ export default function Payments(props) {
     }
 
     return (
-        <div>
+        <div style={{backgroundColor: 'white'}}>
             <LogoBanner user={props.user}/>
             <Elements stripe={stripePromise} options={options}>
                 <StripeElement amount={paymentIntent.metadata.amount}/>

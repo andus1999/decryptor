@@ -19,7 +19,7 @@ const Home = (props) => {
     }
 
     return (
-        <>
+        <div style={{backgroundColor: 'white'}}>
             <Sidebar isOpen={isOpen} toggle={toggle} user={props.user} />
             <Navbar toggle={toggle} user={props.user}/>
             <HeroSection />
@@ -28,7 +28,7 @@ const Home = (props) => {
             <Services predictions={props.predictions}/>   
             <InfoSection {...homeObjThree}/>
             <Footer />    
-        </>
+        </div>
     )
 }
 

@@ -11,13 +11,13 @@ const Api = (props) => {
         window.scrollTo(0,0)        
     }, [])
     return (
-        <>
+        <div style={{backgroundColor: 'white'}}>
             <LogoBanner user={props.user}/>
             <InfoSection {...apiDescription}/>
             <ApiOverview user={props.user}/>
             <ApiEndpoints user={props.user}/>
             <Footer/>
-        </>
+        </div>
     )
 }
 

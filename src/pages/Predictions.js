@@ -7,12 +7,12 @@ import LogoBanner from '../components/LogoBanner'
 
 const Predictions = (props) => {
     return (
-        <>
+        <div style={{backgroundColor: 'white'}}>
             <LogoBanner user={props.user}/>
             <InfoSection {...predictionDescription}/>
             <PredictionTable predictions={props.predictions}/>
             <Footer/>
-        </>
+        </div>
     )
 }
 

@@ -32,7 +32,7 @@ export default function Coin(props) {
 
     const prediction = props.predictions?.filter(x => coinLink === x.id)[0]
     return (
-        <div>
+        <div style={{backgroundColor: 'white'}}>
             <LogoBanner user={props.user}/>
             {prediction == null ? (
                 <h1 style={{

@@ -6,7 +6,7 @@ import LoginElement from '../components/LoginElement';
 function Login(props) {   
       
     return (
-        <div>
+        <div style={{backgroundColor: 'white'}}>
             <LogoBanner user={props.user}/>
             <LoginElement user={props.user}/>
             <Footer></Footer>
