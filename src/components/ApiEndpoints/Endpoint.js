@@ -133,6 +133,7 @@ export default function Endpoint(props) {
                         padding: '20px'}}>Response</h2>   
                     <div style={{
                         overflowY: 'auto',
+                        overflowX: 'hidden',
                         maxHeight: '300px',
                         overflowWrap: 'break-word',
                         padding: '10px',
