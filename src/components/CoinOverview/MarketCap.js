@@ -35,7 +35,7 @@ export default function MarketCap(props) {
                 fontWeight: 400,
                 }}>Market Capitalization in USD</div>
                 <div style={{height: '350px'}}>
-                    {marketCap ? (
+                    {marketCap != null ? (
                         <div style={{paddingTop: '20px'}}>
                             <p style={{
                                 textAlign: 'center',
