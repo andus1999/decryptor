@@ -3,7 +3,7 @@ import model from '../../media/model.svg'
 import server from '../../media/server.svg'
 import analytics from '../../media/analytics.svg'
 import bitcoin from '../../media/bitcoin.svg'
-import serverDown from '../../media/serverDown.svg'
+//import serverDown from '../../media/serverDown.svg'
 
 
 export const homeObjOne = {
