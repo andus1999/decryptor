@@ -106,8 +106,8 @@ app.get("/api/v1/historical-data/:coin",
       bucket
           .file("historical_data/" + req.params.coin + ".json")
           .download(function(err, contents) {
-            const data = JSON.parse(contents.toString());
-            if (data != null) {
+            if (err == null) {
+              const data = JSON.parse(contents.toString());
               res.status(200).json(data);
             } else {
               res.status(404).json({error: "NOT FOUND"});
