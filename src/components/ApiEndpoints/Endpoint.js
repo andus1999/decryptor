@@ -4,6 +4,7 @@ import { Colors } from '../../styles/Colors'
 import TextField from '@mui/material/TextField';
 import { DefaultButton } from '../ButtonElement';
 import CircularProgress from '@mui/material/CircularProgress';
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default function Endpoint(props) {
     const [variables, setVariables] = React.useState({});
@@ -31,6 +32,7 @@ export default function Endpoint(props) {
     }
 
     const onClick = async () => {
+        logEvent(analytics, 'endpoint_request', props.user);
         setLoading(true)
         const apiUrl = getApiUrl()
         console.log(apiUrl)
