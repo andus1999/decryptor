@@ -27,6 +27,7 @@ app.post("/stripe/intent", async (req: Request, res: Response) => {
     metadata: {
       uid,
       amount,
+      currency,
     },
   });
   res.send(paymentIntent);

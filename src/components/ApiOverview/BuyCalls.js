@@ -22,7 +22,7 @@ export default function BuyCalls(props) {
 
     async function createIntent(){
         const purchaseData = {value: amount, currency, uid: props.user.uid}
-        logEvent(analytics, 'purchase', purchaseData);
+        logEvent(analytics, 'begin_checkout', purchaseData);
         setLoading(true);
         const url = 'https://decryptor-329419.web.app/stripe/intent'
         const params = {
