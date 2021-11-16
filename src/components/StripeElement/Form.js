@@ -6,7 +6,7 @@ import { Colors } from '../../styles/Colors';
 import Fade from '@mui/material/Fade';
 import Collapse from '@mui/material/Collapse';
 
-export default function Form() {
+export default function Form(props) {
     const stripe = useStripe();
     const elements = useElements();
     const [loading, setLoading] = React.useState(true)
@@ -25,7 +25,15 @@ export default function Form() {
         const result = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: "http://decryptor.xyz/api",
+                return_url: (window.location.hostname === "localhost") ? (
+                    "http://localhost:3000/api?amount="+props.amount
+                    +"&currency="+props.currency
+                    +"&uid="+props.user.uid
+                ):(
+                    "https://decryptor.xyz/api?amount="+props.amount
+                    +"&currency="+props.currency
+                    +"&uid="+props.user.uid
+                ),
             },
         });
         if (result.error) {
@@ -44,7 +52,7 @@ export default function Form() {
                 </Collapse>
             </div>
             {error && <h3 style={{
-                margin: '30px 0 0',
+                margin: '30px 0',
                 color: Colors.primary,
             }}>{error}</h3>}
             <div style={{

@@ -7,7 +7,6 @@ import {loadStripe} from '@stripe/stripe-js';
 import { Colors } from '../styles/Colors'
 import {useLocation} from 'react-router-dom'
 
-const stripePromise = loadStripe('pk_live_51Jrpx0Ke5TUGpxZvEiomXVy7xlRLB5wx75iLEubyMLglfNhynjzsFEbkWOEU5VGtanYXEDL4B9J41uJKTbIlqKY800J2Yct2LW');
 const appearance = {
     theme: 'flat',
   
@@ -27,6 +26,12 @@ const appearance = {
 };
 
 export default function Payments(props) {
+    var stripePromise = null
+    if(window.location.hostname === "localhost"){
+        stripePromise = loadStripe('pk_test_51Jrpx0Ke5TUGpxZvikMyMs900upQAhCeDB2ozEDDptm0I5LwE537WYIEnbdkKgV1xLbVSuNbR9OTes3yRafwfVt800MmOtk07w');
+    } else {
+        stripePromise = loadStripe('pk_live_51Jrpx0Ke5TUGpxZvEiomXVy7xlRLB5wx75iLEubyMLglfNhynjzsFEbkWOEU5VGtanYXEDL4B9J41uJKTbIlqKY800J2Yct2LW');
+    }
     const location = useLocation(); 
     const paymentIntent = location.state.intent;
 
@@ -41,7 +46,8 @@ export default function Payments(props) {
             <Elements stripe={stripePromise} options={options}>
                 <StripeElement 
                     amount={paymentIntent.metadata.amount} 
-                    currency={paymentIntent.metadata.currency}/>
+                    currency={paymentIntent.metadata.currency}
+                    user={props.user}/>
             </Elements>
             <Footer/>
         </div>

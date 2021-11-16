@@ -9,18 +9,21 @@ const stripe = new Stripe(functions.config().stripe.secret, {
   apiVersion: "2020-08-27",
 });
 
+const stripeTest = new Stripe("sk_test_51Jrpx0Ke5TUGpxZvbh8oLR7FbUsI3NzDgYGLAloaWU9Dlz0vgIA59jg7nfp6WrUZLXLWeveub9ekyxYyQVFBgL4D000qhla7JU", {
+  apiVersion: "2020-08-27",
+});
 const app = express();
 const db = getFirestore();
 
 app.use(cors());
 
-app.post("/stripe/intent", async (req: Request, res: Response) => {
+app.post("/stripe/intent/:mode", async (req: Request, res: Response) => {
   const {amount, currency, uid} = req.body;
   let paymentMethodTypes = ["card"];
   if (currency === "eur") {
     paymentMethodTypes = ["card", "sofort"];
   }
-  const paymentIntent = await stripe.paymentIntents.create({
+  const intent = {
     amount,
     currency,
     payment_method_types: paymentMethodTypes,
@@ -29,7 +32,13 @@ app.post("/stripe/intent", async (req: Request, res: Response) => {
       amount,
       currency,
     },
-  });
+  };
+  let paymentIntent = null;
+  if (req.params.mode === "live") {
+    paymentIntent = await stripe.paymentIntents.create(intent);
+  } else {
+    paymentIntent = await stripeTest.paymentIntents.create(intent);
+  }
   res.send(paymentIntent);
 });
 

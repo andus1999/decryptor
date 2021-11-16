@@ -18,6 +18,7 @@ export default function ApiEndpoints(props) {
                 textAlign: 'center',
                 marginBottom: '20px'}}>API Endpoints</h1>
             <div style={{
+                textAlign: 'center',
                 margin: '0 auto',
                 maxWidth: '1100px',
             }}>

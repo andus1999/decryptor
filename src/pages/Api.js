@@ -1,63 +1,31 @@
 import React from 'react'
+import Rounter from 'react-router-dom'
 import ApiEndpoints from '../components/ApiEndpoints'
 import ApiOverview from '../components/ApiOverview'
 import Footer from '../components/Footer'
 import InfoSection from '../components/InfoSection'
 import { apiDescription } from '../components/InfoSection/Data'
 import LogoBanner from '../components/LogoBanner'
-import {getAnalytics, logEvent} from 'firebase/analytics'
-import {useStripe} from '@stripe/react-stripe-js';
+import {Elements} from '@stripe/react-stripe-js'
+import PaymentDialog from '../components/StripeElement/PaymentDialog'
+import {loadStripe} from '@stripe/stripe-js';
 
 const Api = (props) => {
-
-  const stripe = useStripe();
-  const analytics = getAnalytics();
-
-  const [message, setMessage] = React.useState(null);
-
-  React.useEffect(() => {
-    window.scrollTo(0,0)        
-    if (!stripe) {
-      return;
+    var stripePromise = null
+    if(window.location.hostname === "localhost"){
+        stripePromise = loadStripe('pk_test_51Jrpx0Ke5TUGpxZvikMyMs900upQAhCeDB2ozEDDptm0I5LwE537WYIEnbdkKgV1xLbVSuNbR9OTes3yRafwfVt800MmOtk07w');
+    } else {
+        stripePromise = loadStripe('pk_live_51Jrpx0Ke5TUGpxZvEiomXVy7xlRLB5wx75iLEubyMLglfNhynjzsFEbkWOEU5VGtanYXEDL4B9J41uJKTbIlqKY800J2Yct2LW');
     }
-
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
-
-    if (!clientSecret) {
-      return;
-    }
-
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      switch (paymentIntent.status) {
-        case "succeeded":
-          logEvent(analytics, 'purchase', {
-              value: paymentIntent.metadata.amount/100,
-              currency: paymentIntent.metadata.currency,
-              uid: paymentIntent.metadata.uid,
-          })  
-          setMessage("Payment succeeded!");
-          break;
-        case "processing":
-          setMessage("Your payment is processing.");
-          break;
-        case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
-          break;
-        default:
-          setMessage("Something went wrong.");
-          break;
-      }
-    });
-  }, [stripe]);
-
     return (
         <div style={{backgroundColor: 'white'}}>
             <LogoBanner user={props.user}/>
             <InfoSection {...apiDescription}/>
             <ApiOverview user={props.user}/>
             <ApiEndpoints user={props.user}/>
+            <Elements stripe={stripePromise}>
+                <PaymentDialog/>
+            </Elements>
             <Footer/>
         </div>
     )

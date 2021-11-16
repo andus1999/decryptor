@@ -24,7 +24,11 @@ export default function BuyCalls(props) {
         const purchaseData = {value: amount, currency, uid: props.user.uid}
         logEvent(analytics, 'begin_checkout', purchaseData);
         setLoading(true);
-        const url = 'https://decryptor-329419.web.app/stripe/intent'
+        const url = (window.location.hostname === "localhost") ? (
+            'https://decryptor.xyz/stripe/intent/test'
+        ):(
+            'https://decryptor.xyz/stripe/intent/live'
+        );
         const params = {
             method: 'POST',
             headers: {
