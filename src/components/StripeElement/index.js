@@ -18,7 +18,7 @@ export default function StripeElement(props){
       textAlign: 'center',
       margin: '100px 0',
     }}>
-      <CardContainer style={{minWidth: '600px'}}>
+      <CardContainer style={{maxWidth: '600px'}}>
         <Card variant='outlined' style={{textAlign: 'center'}}>
           <h1 style={{
             margin: '20px',

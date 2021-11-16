@@ -44,7 +44,7 @@ export default function Form(props) {
     };
 
     return (
-        <form style={{padding: '20px'}} onSubmit={handleSubmit}>
+        <form style={{padding: '10px'}} onSubmit={handleSubmit}>
             <div>
                 <Collapse in={!loading} collapsedSize={1}>
                     <div style={{height: '1px'}}/>
