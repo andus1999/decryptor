@@ -4,6 +4,9 @@ import {getFirestore} from "firebase-admin/firestore";
 import {Request, Response} from "express";
 import cors = require("cors");
 import {Stripe} from "stripe";
+import {getAnalytics, logEvent} from "firebase/analytics";
+
+const analytics = getAnalytics();
 
 const stripe = new Stripe(functions.config().stripe.secret, {
   apiVersion: "2020-08-27",
@@ -48,6 +51,14 @@ app.post("/stripe/webhook",
           await docRef.update({
             paidApiCalls,
           });
+          try {
+            logEvent(analytics, "purchase" as any, {
+              value: paymentIntent.metadata.amount/100,
+              currency: paymentIntent.metadata.currency,
+              uid: paymentIntent.metadata.uid,
+            });
+          }
+          catch {}
           break;
         }
         default: {
