@@ -41,8 +41,7 @@ export default function Payments(props) {
             <Elements stripe={stripePromise} options={options}>
                 <StripeElement 
                     amount={paymentIntent.metadata.amount} 
-                    currency={paymentIntent.metadata.currency}
-                    uid={paymentIntent.metadata.uid}/>
+                    currency={paymentIntent.metadata.currency}/>
             </Elements>
             <Footer/>
         </div>

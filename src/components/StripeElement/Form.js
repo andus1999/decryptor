@@ -5,15 +5,12 @@ import { CircularProgress } from '@mui/material';
 import { Colors } from '../../styles/Colors';
 import Fade from '@mui/material/Fade';
 import Collapse from '@mui/material/Collapse';
-import { getAnalytics, logEvent } from "firebase/analytics";
 
-
-export default function Form(props) {
+export default function Form() {
     const stripe = useStripe();
     const elements = useElements();
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState(null)
-    const analytics = getAnalytics();
 
     const handleSubmit = async (event) => {
         console.log('submit')
@@ -35,12 +32,6 @@ export default function Form(props) {
             setLoading(false);
             console.log(result.error.message);
             setError(result.error.message)
-        } else if (paymentIntent && paymentIntent.status === 'succeeded') {
-            logEvent(analytics, 'purchase', {
-                value: props.amount/100,
-                currency: props.currency,
-                uid: props.uid,
-            })
         }
     };
 

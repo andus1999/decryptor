@@ -30,10 +30,7 @@ export default function StripeElement(props){
           <h2 style={{
             margin: '30px',
           }}>Price: {(props.amount/100).toFixed(2)} {getCurrencySymbol(props.currency)}</h2>
-          <Form 
-            amount={props.amount} 
-            currency={props.currency}
-            uid={props.uid}/>          
+          <Form/>          
         </Card>
       </CardContainer>
     </div>
