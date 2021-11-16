@@ -13,9 +13,9 @@ const Api = (props) => {
   const stripe = useStripe();
   const analytics = getAnalytics();
 
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = React.useState(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.scrollTo(0,0)        
     if (!stripe) {
       return;
