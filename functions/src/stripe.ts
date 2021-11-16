@@ -52,13 +52,14 @@ app.post("/stripe/webhook",
             paidApiCalls,
           });
           try {
-            logEvent(analytics, "purchase" as any, {
+            logEvent(analytics, "purchase" as never, {
               value: paymentIntent.metadata.amount/100,
               currency: paymentIntent.metadata.currency,
               uid: paymentIntent.metadata.uid,
             });
+          } catch (error) {
+            functions.logger.log("Analytics error", error);
           }
-          catch {}
           break;
         }
         default: {

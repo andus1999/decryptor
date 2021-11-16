@@ -7,7 +7,7 @@ admin.initializeApp({
   storageBucket: "gs://decryptor-329419.appspot.com",
 });
 
-import { initializeApp } from "firebase/app";
+import {initializeApp} from "firebase/app";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCN1w6Nd5zIPH_qzjyBCtn9Lg4ZMR1d8pU",
@@ -16,7 +16,7 @@ const firebaseConfig = {
   storageBucket: "decryptor-329419.appspot.com",
   messagingSenderId: "1078715077596",
   appId: "1:1078715077596:web:ec351ff6f73b27787d3519",
-  measurementId: "G-2C9CSQ9L0Z"
+  measurementId: "G-2C9CSQ9L0Z",
 };
 
 initializeApp(firebaseConfig);
