@@ -3,7 +3,7 @@ import { Colors } from '../../styles/Colors';
 import { Card, CardContainer } from '../CardElements';
 import Form from './Form';
 
-function getCurrencySymbol(){
+function getCurrencySymbol(currency){
   if (currency === "eur"){
       return "€"
   }
