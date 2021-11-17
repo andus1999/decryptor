@@ -31,6 +31,7 @@ awsconfiguration.json
 
 #firebase
 functions/decryptor-admin.json
+functions/lib/decryptor-admin.json
 firebase-debug.log
 .firebase/
 
