@@ -3,45 +3,30 @@ import { Colors } from '../../styles/Colors'
 import { Link as LinkR } from 'react-router-dom'
 
 export const ServicesContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background: ${Colors.black};
     padding: 100px 0 100px 0;
+    text-align: center;
 `;
 
 export const ServicesWrapper = styled.div `
     max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    grid-gap: 40px;
     padding: 0 50px;
 
-    @media screen and (max-width: 1000px) {
-        grid-template-columns: 1fr 1fr;
-    }
-
     @media screen and (max-width: 768px){
-        grid-template-columns: 1fr;
         padding: 0 20px;
     }
 `;
 
 export const ServicesCard = styled(LinkR)`
+    min-height: 400px;
+    padding: 20px 20px;
     color: ${Colors.black};
     text-decoration: none;
-    background: ${Colors.white};
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border-radius: 10px;
-    max-height: 500px;
-    padding: 60px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     transition: all 0.2s ease-in-out;
 
     &:hover{
