@@ -1,6 +1,6 @@
 import React from 'react'
 import { CardContainer, Card } from '../CardElements'
-import { DefaultButton } from '../ButtonElement';
+import Button from '@mui/material/Button';
 import { Colors } from '../../styles/Colors';
 import TextField from '@mui/material/TextField';
 import {useHistory} from 'react-router-dom'
@@ -124,9 +124,14 @@ export default function BuyCalls(props) {
                     }}>
                         {loading ? 
                             <CircularProgress/> :
-                            <DefaultButton disabled={amount < minAmount ? true : false}>
-                                Buy Now
-                            </DefaultButton>
+                            <div style={{margin: '2.5px'}}>
+                                <Button
+                                    type="submit"
+                                    disabled={amount < minAmount ? true : false}
+                                    variant='contained'>
+                                    Buy Now
+                                </Button>
+                            </div>
                         }
                     </div>
                 </form>

@@ -7,10 +7,25 @@ export const mainTheme = createTheme({
       light: Colors.primaryLight,
       main: Colors.primary,
     },
+    white: {
+      main: Colors.white,
+    },
+    black: {
+      main: Colors.black
+    },
   },
   typography: {
     fontSize: 16,
     fontFamily: "Sora",
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '100px',
+        },
+      },
+    },
   },
 });
 

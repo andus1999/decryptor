@@ -77,7 +77,7 @@ export default function PaymentDialog() {
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button variant="outlined" onClick={handleClose} autoFocus>
+                <Button variant="contained" onClick={handleClose} autoFocus>
                     Ok
                 </Button>
             </DialogActions>

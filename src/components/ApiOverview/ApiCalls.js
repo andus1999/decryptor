@@ -1,8 +1,9 @@
 import React from 'react'
 import { Colors } from '../../styles/Colors'
-import { Button, RouterButton } from '../ButtonElement';
+import Button from '@mui/material/Button';
 import {getAuth} from 'firebase/auth'
 import {Card, CardContainer} from '../CardElements'
+import {Link as RouterLink} from 'react-router-dom';
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -73,14 +74,14 @@ export default function ApiCalls(props) {
                     </div>
                     <h3 style={primaryHeading}>Your API Token</h3>
                     <div style={buttonContainer}>
-                        <Button to='' 
+                        <Button
                             onClick={(event)=>{
                                 event.preventDefault();
                                 navigator.clipboard.writeText(props.user.uid)
                                 setButtonText('Copied successfully')
                                 setTimeout(function() { setButtonText('Copy to Clipboard') }, 5000);
                             }}
-                            primary={0}>
+                            variant='contained'>
                             {buttonText}
                         </Button>
                     </div>
@@ -90,7 +91,11 @@ export default function ApiCalls(props) {
                     <h2 style={overviewHeading}>API Overview</h2>
                     <h3 style={primaryHeading}>Not signed in to an Account</h3>
                     <div style={buttonContainer}>
-                        <RouterButton to='/sign-in'primary={0}>Sign In</RouterButton>
+                        <Button 
+                        to='/sign-in'
+                        component={RouterLink}
+                        variant='contained'>
+                            Sign In</Button>
                     </div>
                 </Card>
             )}

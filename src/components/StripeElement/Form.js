@@ -1,10 +1,9 @@
 import React from 'react'
 import {useStripe, useElements, PaymentElement} from '@stripe/react-stripe-js';
-import {DefaultButton} from '../ButtonElement'
+import Button from '@mui/material/Button';
 import { CircularProgress } from '@mui/material';
 import { Colors } from '../../styles/Colors';
 import Fade from '@mui/material/Fade';
-import Collapse from '@mui/material/Collapse';
 
 export default function Form(props) {
     const stripe = useStripe();
@@ -46,10 +45,7 @@ export default function Form(props) {
     return (
         <form style={{padding: '10px'}} onSubmit={handleSubmit}>
             <div>
-                <Collapse in={!loading} collapsedSize={1}>
-                    <div style={{height: '1px'}}/>
-                    <PaymentElement onReady={() => setTimeout(() => setLoading(false), 500)}/>
-                </Collapse>
+                <PaymentElement onReady={() => setLoading(false)}/>
             </div>
             {error && <h3 style={{
                 margin: '30px 0',
@@ -59,11 +55,16 @@ export default function Form(props) {
                 padding: '0 0 20px',
                 display: 'inline-block',
             }}>
-                <Fade in={loading}>
-                    <CircularProgress/>
-                </Fade>
+                <div>
+                    <Fade in={loading}>
+                        <CircularProgress/>
+                    </Fade>
+                </div>
                 <Fade in={!loading}>
-                    <DefaultButton>Submit</DefaultButton>
+                    <Button
+                    variant='contained'
+                    size='large'
+                    type="submit">Submit</Button>
                 </Fade>
             </div>
         </form>

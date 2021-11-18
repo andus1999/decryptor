@@ -2,6 +2,8 @@ import React from 'react'
 import { Colors } from '../../styles/Colors';
 import { Card, CardContainer } from '../CardElements';
 import Form from './Form';
+import {Link} from 'react-router-dom'
+import Button from '@mui/material/Button'
 
 function getCurrencySymbol(currency){
   if (currency === "eur"){
@@ -30,11 +32,16 @@ export default function StripeElement(props){
           <h2 style={{
             margin: '30px',
           }}>Price: {(props.amount/100).toFixed(2)} {getCurrencySymbol(props.currency)}</h2>
-          <Form
-            amount={props.amount} 
-            currency={props.currency}
-            user={props.user}
-            />          
+          {props.user ? 
+            <Form
+              amount={props.amount} 
+              currency={props.currency}
+              user={props.user}
+              /> :
+            <Button 
+            variant='contained'
+            component={Link}
+            to='/sign-in'>Sign in</Button>}
         </Card>
       </CardContainer>
     </div>

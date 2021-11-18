@@ -2,7 +2,7 @@ import React from 'react'
 import {Card, CardContainer} from '../CardElements'
 import { Colors } from '../../styles/Colors'
 import TextField from '@mui/material/TextField';
-import { DefaultButton } from '../ButtonElement';
+import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import { getAnalytics, logEvent } from "firebase/analytics";
 import Collapse from '@mui/material/Collapse';
@@ -123,24 +123,22 @@ export default function Endpoint(props) {
                     color: Colors.primary,
                     padding: '10px',
                     lineHeight: '30px'}}>{props.data.action}</p>
-                <form onSubmit={onClick} key='test'>
+                <form onSubmit={onClick}>
                     <div>{endpoint}</div>
                     {props.user && <div style={{
                         padding: '30px',
                         textAlign: 'center',}}>
                             {loading ? (
                                 <CircularProgress/>
-                            ):( <>
-                                    {hideResponse ? (
-                                        <DefaultButton style={{
-                                            display: 'inline-block',
-                                        }}>Call</DefaultButton>
-                                    ):(
-                                        <DefaultButton style={{
-                                            display: 'inline-block',
-                                        }}>Clear</DefaultButton>
-                                    )}
-                                </>
+                            ):( 
+                                <div style={{margin: '2.5px'}}>
+                                    <Button style={{
+                                        display: 'inline-block',
+                                    }}
+                                    type="submit"
+                                    variant='contained'>{hideResponse ? 'Call' : 'Clear'}
+                                    </Button>
+                                </div>
                             )}
                     </div>}
                 </form>

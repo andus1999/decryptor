@@ -1,5 +1,7 @@
 import React from 'react'
-import { RouterButton, Button } from '../ButtonElement'
+import Button from '@mui/material/Button';
+import {scroller} from 'react-scroll';
+import {Link as RouterLink} from 'react-router-dom';
 import {
     InfoContainer,
     InfoWrapper,
@@ -15,8 +17,17 @@ import {
     Img
  } from './InfoElements'
 
+
+
 const InfoSection = ({button, router, lightBg, id, directions, imgStart, topLine, 
     headline, description, buttonLabel, img}) => {
+    const scrollBehavior = () => {
+        scroller.scrollTo(directions, {
+            duration: 500,
+            smooth: true,
+            offset: 0,
+        });
+    };
     return (
         <>
             <InfoContainer lightBg={lightBg} id={id}>
@@ -29,20 +40,18 @@ const InfoSection = ({button, router, lightBg, id, directions, imgStart, topLine
                                     <Subtitle darkText = {lightBg}>{description}</Subtitle>
                                     {button &&
                                         <BtnWrap>{router ? (
-                                            <RouterButton 
-                                            to={directions} 
-                                            primary={lightBg ? 0 : 1}>
+                                            <Button
+                                                variant='contained'
+                                                component={RouterLink} 
+                                                to={directions} 
+                                            >
                                                 {buttonLabel}
-                                            </RouterButton>
+                                            </Button>
                                         ) : (
                                             <Button 
-                                            to={directions} 
-                                            smooth='true' 
-                                            primary={lightBg ? 0 : 1}
-                                            duration={500}
-                                            spy={true}
-                                            exact='true'
-                                            offset={-80}>
+                                                variant='contained'
+                                                onClick={scrollBehavior}
+                                            >
                                                 {buttonLabel}
                                             </Button>
                                         )}

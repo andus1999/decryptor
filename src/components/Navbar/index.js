@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { FaBars } from 'react-icons/fa'
 import { animateScroll as scroll } from 'react-scroll'
 import { getAuth, signOut } from "firebase/auth";
+import Button from "@mui/material/Button"
+import {Link as RouterLink} from 'react-router-dom';
+
 import {
     Nav, 
     NavbarContainer, 
@@ -70,13 +73,22 @@ const Navbar = ({ toggle, user }) => {
                     </NavMenu>
                     <NavBtn>
                         {user ? (
-                            <NavBtnLink to='' onClick={(event)=>{
-                                event.preventDefault();
-                                const auth = getAuth();
-                                signOut(auth)
-                            }}>Sign Out</NavBtnLink>
+                            <Button
+                                onClick={(event)=>{
+                                    event.preventDefault();
+                                    const auth = getAuth();
+                                    signOut(auth)
+                                }}
+                                variant='contained'
+                            >Sign Out</Button>
                         ):(
-                            <NavBtnLink to='/sign-in'>Sign In</NavBtnLink>
+                            <Button 
+                            component={RouterLink}
+                            to='/sign-in'
+                            variant='contained'
+                            >
+                                Sign In
+                            </Button>
                         )}
                     </NavBtn>
                 </NavbarContainer>

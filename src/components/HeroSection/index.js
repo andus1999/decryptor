@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import Video from '../../media/video.mp4'
-import { Button } from '../ButtonElement'
+import Button from '@mui/material/Button'
+import {scroller} from 'react-scroll';
+
 import { 
     HeroContainer,
     HeroBg,
@@ -20,6 +22,15 @@ const HeroSection = () => {
         setHover(!hover)
     }
 
+    const scrollBehavior = () => {
+        scroller.scrollTo('about', {
+            duration: 500,
+            smooth: true,
+            offset: 0,
+            spy: true,
+        });
+    };
+
     return (
         <HeroContainer>
             <HeroBg>
@@ -31,11 +42,11 @@ const HeroSection = () => {
                     Find out which coins to buy. With simple graphs and price predictions.
                 </HeroP>
                 <HeroBtnWrapper>
-                    <Button to='about' onMouseEnter={onHover} 
-                    onMouseLeave={onHover}
-                    primary='true'
-                    smooth='true' duration={500} spy={true} 
-                    exact='true' offset={-80}>
+                    <Button onMouseEnter={onHover} 
+                        onMouseLeave={onHover}
+                        variant='contained'
+                        onClick={scrollBehavior}
+                    >
                         Get started {hover ? <ArrowForward /> : <ArrowRight/>}
                     </Button>
                 </HeroBtnWrapper>
