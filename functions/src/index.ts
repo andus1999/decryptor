@@ -23,7 +23,7 @@ exports.createUser = functions.auth.user().onCreate(async (user) => {
     name: user.displayName,
     email: user.email,
     uid: user.uid,
-    freeApiCalls: 100,
+    freeApiCalls: 10000,
     paidApiCalls: 0,
   };
   await docRef.set(data);
