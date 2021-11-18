@@ -10,11 +10,16 @@ import Data from '../../media/data.svg'
 import MarketCap from './MarketCap';
 
 export default function CoinOverview(props) {
+    const formatNumber = (number) => {
+        return (number > 0.1) ?
+        Math.round(number*100)/100 :
+        number.toPrecision(2)
+    }
     const currency = props.prediction.currency;
     const predictionDate = new Date(props.prediction.timestampTarget*1000)
     const currentDate = new Date(props.prediction.date*1000)
-    const predictionPrice = Math.round(props.prediction.priceTarget*100)/100
-    const currentPrice = Math.round(props.prediction.currentPrice*100)/100
+    const predictionPrice = formatNumber(props.prediction.priceTarget)
+    const currentPrice = formatNumber(props.prediction.currentPrice)
     const hint = {
         color: Colors.grey,
         margin: '20px 0 20px 0',
