@@ -157,7 +157,7 @@ function PredictionTable(props) {
                             onCellClick={(params) => {
                                     let id = params.row.id;
                                     let prediction = props.predictions.filter(p => p.id === id)[0];
-                                    let customLink = prediction.link;
+                                    let customLink = prediction.id;
                                     let link = (customLink || prediction.currency.toLowerCase()
                                     .replace(' ', '-').replace('.', '-'));
                                     onCoinClick(link)
