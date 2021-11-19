@@ -45,7 +45,7 @@ const Footer = () => {
                               decryptor
                           </SocialLogo>
                           <WebsiteRights>decryptor © {new Date().getFullYear()} All rights reserved.</WebsiteRights>
-                          <SocialIcons>
+                          {/* <SocialIcons>
                               <SocialIconLink href="/" target="_blank" aria-label="TikTok">
                                   <FaTiktok />
                               </SocialIconLink>
@@ -55,7 +55,7 @@ const Footer = () => {
                               <SocialIconLink href="/" target="_blank" aria-label="Youtube">
                                   <FaYoutube />
                               </SocialIconLink>
-                          </SocialIcons>
+                          </SocialIcons> */}
                       </SocialMediaWrap>
                   </SocialMedia>
               </FooterWrap>
