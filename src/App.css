@@ -6,11 +6,7 @@
   font-family: 'Sora', sans-serif;
 }
 
-html, body {
-  overflow-x: hidden;
-}
 body {
-  position: relative;
   width: '100%';
   background-color: black;
 }
