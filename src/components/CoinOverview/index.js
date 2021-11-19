@@ -28,7 +28,8 @@ export default function CoinOverview(props) {
     
     const whiteLine = {
         background: Colors.white, 
-        display: 'inline-block', 
+        marginTop: '20px',
+        float: 'left', 
         height: '60px', 
         width: '5px', 
         borderRadius: '2.5px'
@@ -45,27 +46,33 @@ export default function CoinOverview(props) {
             <div style={{
                 maxWidth: '1100px',
                 margin: '0 auto'}}>
-            <div style={{padding: '3%', display: 'inline-block', minWidth: '300px', textAlign: 'left'}}>
-                <div style={{background: Colors.primary, display: 'inline-block', height: '70px', width: '10px', borderRadius: '2.5px'}}/>
-                    <div style={{display: 'inline-block', marginLeft: '20px'}}>    
+                <div style={{padding: '3%', display: 'inline-block', textAlign: 'left'}}>
+                    <div style={{
+                        background: Colors.primary, 
+                        float: 'left', 
+                        height: '70px', 
+                        width: '10px', 
+                        borderRadius: '5px',
+                        marginTop: '5px',}}/>
+                    <div style={{marginLeft: '30px', overflow:'hidden'}}>    
                         <h1 style={{color: Colors.white}}>{currency}</h1>
                         <p style={{
                             color: Colors.grey,
-                            margin: '20px 0 20px 0',
+                            margin: '20px 0 0 0',
                         }}>Detailed information about {currency}.</p>
                     </div>
                 </div>
-                <div style={{display: 'inline-block', minWidth: '300px', padding: '0 5% 20px 3%', textAlign: 'left'}}>
+                <div style={{display: 'inline-block', padding: '0 2% 20px 3%', textAlign: 'left'}}>
                     <div style={whiteLine}/>
-                    <div style={{display: 'inline-block', marginLeft: '20px'}}>
+                    <div style={{overflow: 'hidden', marginLeft: '20px'}}>
                         <p style={hint}>Current price as per {currentDate.toLocaleDateString()}.</p>
                         <FaCoins style={{fontSize: '1.5rem', color: Colors.white, display: 'inline-block'}}/>
                         <h2 style={{color: Colors.white, display: 'inline-block', marginLeft:'30px'}}>{currentPrice + ' $'}</h2>
                     </div>
                 </div>
-                <div style={{display: 'inline-block', minWidth: '300px', padding: '0 5% 40px 3%',  textAlign: 'left'}}>
+                <div style={{display: 'inline-block', padding: '0 2% 40px 3%',  textAlign: 'left'}}>
                     <div style={whiteLine}/>
-                    <div style={{display: 'inline-block', marginLeft: '20px'}}>
+                    <div style={{overflow: 'hidden', marginLeft: '20px'}}>
                         <p style={hint}>Price target for {predictionDate.toLocaleDateString()}.</p>
                         <FaCoins style={{fontSize: '1.5rem', color: Colors.white, display: 'inline-block'}}/>
                         <h2 style={{color: Colors.white, display: 'inline-block', marginLeft:'30px'}}>{predictionPrice + ' $'}</h2>
