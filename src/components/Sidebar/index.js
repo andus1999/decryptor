@@ -1,5 +1,7 @@
 import React from 'react'
 import { getAuth, signOut } from "firebase/auth";
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom'
 import {
     SidebarContainer,
     Icon,
@@ -26,13 +28,19 @@ const Sidebar = ({ isOpen, toggle, user }) => {
                 </SidebarMenu>
                 <SideBtnWrap>
                     {user ? (
-                        <SidebarRoute to='' onClick={(event)=>{
+                        <Button to='' 
+                        onClick={(event)=>{
                             event.preventDefault();
                             const auth = getAuth();
                             signOut(auth)
-                        }}>Sign Out</SidebarRoute>
+                        }}
+                        variant='contained'>Sign Out</Button>
                     ):(
-                        <SidebarRoute to='/sign-in'>Sign In</SidebarRoute>
+                        <Button 
+                        to='/sign-in'
+                        variant='contained'
+                        component={Link}
+                        >Sign In</Button>
                     )}
                 </SideBtnWrap>
             </SidebarWrapper>

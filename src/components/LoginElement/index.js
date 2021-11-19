@@ -25,9 +25,8 @@ const AuthContainer = styled.div`
     a{
     color: ${Colors.black}
     }
-    .firebaseui-button {
-        background-color: ${Colors.primary} !important;
-        color: white !important;
+    .firebaseui-idp-button {
+        border-radius: 100px;
     }
 
     .firebaseui-textfield.mdl-textfield .firebaseui-label:after {
