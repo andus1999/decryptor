@@ -9,7 +9,7 @@ export default function FooterButton(props) {
             <Button
             sx={{
                 textAlign: 'left',
-                fontSize: 11,
+                fontSize: 12,
                 ':hover': {
                     color: 'primary.main',
                 },
