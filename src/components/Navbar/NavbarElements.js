@@ -84,7 +84,6 @@ export const NavLinks = styled(LinkS)`
     height: 100%;
     cursor: pointer;
     transition: all 0.1s ease-out;
-    transition-delay: 0.3s;
     border-bottom: 3px solid ${({ scrollNav }) => (scrollNav ? Colors.black : 'transparent')};
     
     &.active {
