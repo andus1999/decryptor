@@ -65,7 +65,7 @@ export const LineChartOptions = {
               day: 'numeric'
             }).format(date);
           }
-          if (context.parsed.x && context.parsed.y){
+          if (context.parsed.x && context.parsed.y !== null){
             label += ': ';
           }
           if (context.parsed.y !== null) {
