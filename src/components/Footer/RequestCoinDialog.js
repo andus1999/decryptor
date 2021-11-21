@@ -43,14 +43,13 @@ export default function FromDialog(props) {
 
     return (
         <Dialog open={props.open} onClose={onClose}>
-            <DialogTitle>Request a Coin</DialogTitle>
+            <DialogTitle>Request a missing Coin</DialogTitle>
                 <DialogContent>
                     <DialogContentText style={{margin: '20px 0'}}>
-                        Provide the name of the coin you would like to be added to our dataset.
+                        Provide the name of the coin or asset you would like to be added to our dataset.
                     </DialogContentText>
                     <TextField
                         onChange={onCoinChange}
-                        autoFocus
                         autoComplete="off"
                         label="Name"
                         fullWidth
