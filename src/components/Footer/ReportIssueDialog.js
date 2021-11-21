@@ -43,6 +43,7 @@ export default function FromDialog(props) {
                         Please describe the issue.
                     </DialogContentText>
                     <TextField
+                        multiline
                         onChange={onChange}
                         autoFocus
                         autoComplete="off"
