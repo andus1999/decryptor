@@ -52,7 +52,7 @@ const Footer = () => {
                             <FooterLinkItems>
                                 <FooterLinkTitle>Additional Actions</FooterLinkTitle>
                                 <FooterButton onClick={() => setOpenCoin(true)}>
-                                    Request missing Coin
+                                    Request a Coin
                                 </FooterButton>
                                                                 
                                 <FooterButton onClick={() => setOpenIssue(true)}>
