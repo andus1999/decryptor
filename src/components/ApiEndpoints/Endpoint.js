@@ -52,10 +52,12 @@ export default function Endpoint(props) {
             },
         }
         fetch(apiUrl, params)
-        .then(response => response.text())
-        .then(text =>{
+        .then(response => response.json())
+        .then(data =>{
             setHideResponse(false)
-            setResponse(text)
+            const string = JSON.stringify(data, null, "\t")
+            console.log(string)
+            setResponse(string)
             setLoading(false)
         })
         .catch(()=>{
@@ -149,9 +151,11 @@ export default function Endpoint(props) {
                     <div style={{
                         overflowY: 'auto',
                         overflowX: 'hidden',
+                        wordBreak: 'break-all',
+                        whiteSpace: 'pre-wrap',
                         height: '200px',
-                        overflowWrap: 'break-word',
                         padding: '10px',
+                        textAlign: 'left',
                     }}>
                         {response}
                     </div>
