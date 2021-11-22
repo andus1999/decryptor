@@ -5,13 +5,15 @@ import {Scatter, defaults} from 'react-chartjs-2'
 import 'chartjs-adapter-date-fns';
 import { LineChartOptions } from '../../styles/Themes';
 
-
+const convertTimeStamp = (timestamp) => {
+  return (timestamp + 3600 * 24) * 1000
+}
 
 export default function ChartView(props) {
     defaults.font.family = 'Sora'
     defaults.font.size = 16;
     const predictions = props.historicalData?.map((x) => {
-      return {x: x.timestamp*1000, y: x.close}
+      return {x: convertTimeStamp(x.timestamp), y: x.close}
     });
     predictions?.push({x: props.prediction.timestampTarget*1000, y: props.prediction.priceTarget})
     const lows = [

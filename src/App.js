@@ -80,7 +80,7 @@ function App() {
         obj.prediction = Math.round(prediction.average*10000)/100;
         obj.predictionLow = Math.round(prediction.low*10000)/100;
         obj.predictionHigh = Math.round(prediction.high*10000)/100;
-        obj.date = data.market_data.timestamp;
+        obj.date = data.market_data.timestamp+3600*24;
         obj.timestampTarget = prediction.timestamp;
         obj.currentPrice = data.market_data.close;
         obj.priceTargetLow = (obj.currentPrice*(prediction.low+1));

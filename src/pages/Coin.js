@@ -9,26 +9,23 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 export default function Coin(props) {
     const db = getFirestore();
 
-    const [historicalData, setHistoricalData] = React.useState(null)
+    const [metaData, setMetaData] = React.useState(null)
 
     const location = useLocation();
 
     const coinLink = location.pathname.split('/').at(-1)
     
     React.useEffect(() => {
-        const getHistoricalData = async () => {
+        const getMetaData = async () => {
             const docSnap = await getDoc(doc(db, 'coins', coinLink));
-            const data = docSnap.data().historical_data
-            data.forEach(element => {
-                element.timestamp += 3600*24;
-            });
-            setHistoricalData(data)
+            const data = docSnap.data()
+            setMetaData(data)
         }
-        if (historicalData == null){
+        if (metaData == null){
             window.scrollTo(0,0)
-            getHistoricalData();
+            getMetaData();
         }
-    }, [historicalData, db, coinLink])
+    }, [metaData, db, coinLink])
 
     const prediction = props.predictions?.filter(x => coinLink === x.id)[0]
     return (
@@ -44,7 +41,7 @@ export default function Coin(props) {
                 <div>
                     <CoinOverview 
                     prediction={prediction}
-                    historicalData={historicalData}
+                    metaData={metaData}
                     bitcoinMarketCap={props.bitcoinMarketCap}/>
                 </div>
             )}

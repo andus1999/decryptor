@@ -8,6 +8,11 @@ import {FaCoins} from 'react-icons/fa'
 import Boxplot from './Boxplot';
 import Data from '../../media/data.svg'
 import MarketCap from './MarketCap';
+import Description from './Description';
+
+const convertTimeStamp = (timestamp) => {
+  return (timestamp + 3600 * 24) * 1000
+}
 
 export default function CoinOverview(props) {
     const formatNumber = (number) => {
@@ -88,17 +93,32 @@ export default function CoinOverview(props) {
                 margin:'40px 3% 40px 3%',
                 textAlign: 'center'}}>
                 <IconItems prediction={props.prediction}/>
-                <img style={{
-                    width: '100%',
+                <div style={{
                     maxWidth: '340px',
                     display: 'inline-block',
-                    padding:'20px',
-                }}src={Data} alt=""></img>
+                    padding: '20px',
+                }}>
+                    <div style={{
+                        margin: '10px 0 30px',
+                        height: '64px'
+                    }}>
+                        {props.metaData && 
+                            <img style={{
+                                height: '64px',
+                                borderRadius: '10px',
+                            }} 
+                            src={props.metaData.logo} 
+                            alt=""></img>
+                        }
+                    </div>
+                    <img style={{width: '100%'}} src={Data} alt=""></img>
+                </div>                
                 <Volatility prediction={props.prediction}/>
                 <Boxplot prediction={props.prediction}/>
-                <ChartView prediction={props.prediction} historicalData={props.historicalData}/>
-                <Volume historicalData={props.historicalData}/>
-                <MarketCap historicalData={props.historicalData} bitcoinMarketCap = {props.bitcoinMarketCap}/>
+                <ChartView prediction={props.prediction} historicalData={props.metaData?.historical_data}/>
+                <Volume historicalData={props.metaData?.historical_data}/>
+                <MarketCap historicalData={props.metaData?.historical_data} bitcoinMarketCap = {props.bitcoinMarketCap}/>
+                <Description metaData={props.metaData}/>
             </div>
         </div>
         <div style={{
