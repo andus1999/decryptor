@@ -81,7 +81,7 @@ export const dataDescription = {
     router: false,
     id: 'dataDescription',
     directions: '',
-    lightBg: false,
+    lightBg: true,
     topLine: 'Data',
     headline: 'High Quality Historical Data',
     description: "The predictive model is trained on historical data of crypto currencies. This data not only includes candle price data, but also additional data like trading volume and market capitalization. Also, coin specific meta data is provided to the model in order to get more accurate predictions.",

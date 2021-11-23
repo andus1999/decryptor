@@ -3,7 +3,7 @@ import { Colors } from '../../styles/Colors'
 import { Link as LinkR } from 'react-router-dom'
 
 export const ServicesContainer = styled.div`
-    background: ${Colors.black};
+    background: ${Colors.white};
     padding: 100px 0 100px 0;
     text-align: center;
 `;
@@ -45,7 +45,7 @@ export const ServicesIcon = styled.img`
 
 export const ServicesH1 = styled.h1`
     font-size: 2.5rem;
-    color: ${Colors.white};
+    color: ${Colors.black};
     margin-bottom: 64px;
 
     @media screen and (max-width: 480px) {
