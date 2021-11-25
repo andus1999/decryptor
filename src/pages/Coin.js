@@ -4,9 +4,19 @@ import LogoBanner from '../components/LogoBanner'
 import { useLocation } from 'react-router'
 import Footer from '../components/Footer'
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getAnalytics, logEvent } from "firebase/analytics";
+
 
 
 export default function Coin(props) {
+    React.useEffect(() => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'screen_view', {
+            firebase_screen: 'coin', 
+            firebase_screen_class: 'info'
+        });
+    }, [])
+
     const db = getFirestore();
 
     const [metaData, setMetaData] = React.useState(null)

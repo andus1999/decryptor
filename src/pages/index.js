@@ -6,8 +6,18 @@ import InfoSection from '../components/InfoSection'
 import { homeObjOne, homeObjTwo, homeObjThree } from '../components/InfoSection/Data'
 import Services from '../components/Services'
 import Footer from '../components/Footer'
+import { getAnalytics, logEvent } from "firebase/analytics";
+
 
 const Home = (props) => {
+    React.useEffect(() => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'screen_view', {
+            firebase_screen: 'home', 
+            firebase_screen_class: 'info'
+        });
+    }, [])
+
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {

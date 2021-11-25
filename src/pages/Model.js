@@ -5,9 +5,19 @@ import { modelDescription, dataDescription } from '../components/InfoSection/Dat
 import LogoBanner from '../components/LogoBanner'
 import Correlation from '../components/Correlation'
 import { getFirestore, doc, getDoc } from "firebase/firestore"
+import { getAnalytics, logEvent } from "firebase/analytics";
+
 
 
 const Model = (props) => {
+    React.useEffect(() => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'screen_view', {
+            firebase_screen: 'model', 
+            firebase_screen_class: 'info'
+        });
+    }, [])
+
     const db = getFirestore()
     const [modelData, setModelData] = React.useState(null);
 

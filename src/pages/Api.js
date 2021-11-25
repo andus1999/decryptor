@@ -9,8 +9,17 @@ import LogoBanner from '../components/LogoBanner'
 import {Elements} from '@stripe/react-stripe-js'
 import PaymentDialog from '../components/StripeElement/PaymentDialog'
 import {loadStripe} from '@stripe/stripe-js';
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 const Api = (props) => {
+    React.useEffect(() => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'screen_view', {
+            firebase_screen: 'api', 
+            firebase_screen_class: 'interactive'
+        });
+    }, [])
+
     var stripePromise = null
     if(window.location.hostname === "localhost"){
         stripePromise = loadStripe('pk_test_51Jrpx0Ke5TUGpxZvikMyMs900upQAhCeDB2ozEDDptm0I5LwE537WYIEnbdkKgV1xLbVSuNbR9OTes3yRafwfVt800MmOtk07w');

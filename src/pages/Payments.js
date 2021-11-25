@@ -6,6 +6,8 @@ import {Elements} from '@stripe/react-stripe-js'
 import {loadStripe} from '@stripe/stripe-js';
 import { Colors } from '../styles/Colors'
 import {useLocation} from 'react-router-dom'
+import { getAnalytics, logEvent } from "firebase/analytics";
+
 
 const appearance = {
     theme: 'flat',
@@ -26,6 +28,14 @@ const appearance = {
 };
 
 export default function Payments(props) {
+    React.useEffect(() => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'screen_view', {
+            firebase_screen: 'payment', 
+            firebase_screen_class: 'input'
+        });
+    }, [])
+
     var stripePromise = null
     if(window.location.hostname === "localhost"){
         stripePromise = loadStripe('pk_test_51Jrpx0Ke5TUGpxZvikMyMs900upQAhCeDB2ozEDDptm0I5LwE537WYIEnbdkKgV1xLbVSuNbR9OTes3yRafwfVt800MmOtk07w');
