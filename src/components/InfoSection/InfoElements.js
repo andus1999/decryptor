@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import { Colors } from '../../styles/Colors'
+import styled from 'styled-components';
+import Colors from '../../styles/Colors';
 
 export const InfoContainer = styled.div`
     color: ${Colors.white};
-    background: ${({lightBg}) => (lightBg ? Colors.white : Colors.black)};
+    background: ${({ lightBg }) => (lightBg ? Colors.white : Colors.black)};
 `;
 
 export const InfoWrapper = styled.div`
@@ -22,12 +22,10 @@ export const InfoRow = styled.div`
     display: grid;
     grid-auto-columns: minmax(auto, 1fr);
     align-items: center;
-    grid-template-areas: ${({imgStart}) => 
-    (imgStart ? `'col2 col1'` : `'col1 col2'`)};
+    grid-template-areas: ${({ imgStart }) => (imgStart ? '\'col2 col1\'' : '\'col1 col2\'')};
 
     @media screen and (max-width: 768px) {
-        grid-template-areas: ${({imgStart}) => 
-        (imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`)};
+        grid-template-areas: ${({ imgStart }) => (imgStart ? '\'col1\' \'col2\'' : '\'col1 col1\' \'col2 col2\'')};
     }
 `;
 
@@ -47,7 +45,7 @@ export const TextWrapper = styled.div`
     max-width: 540px;
     padding-top: 0;
     padding-bottom: 60px;
-`
+`;
 
 export const TopLine = styled.p`
     color: ${Colors.primary};
@@ -57,7 +55,7 @@ export const TopLine = styled.p`
     letter-spacing: 1.4px;
     text-transform: uppercase;
     margin-bottom: 16px;
-`
+`;
 
 export const Heading = styled.h1`
     margin-bottom: 24px;
@@ -76,7 +74,7 @@ export const Subtitle = styled.p`
     margin-bottom: 35px;
     font-size: 18px;
     line-height: 24px;
-    color: ${({darkText}) => (darkText ? Colors.black : Colors.white)};
+    color: ${({ darkText }) => (darkText ? Colors.black : Colors.white)};
 `;
 
 export const BtnWrap = styled.div`

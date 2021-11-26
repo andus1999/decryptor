@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import Paper from '@mui/material/Paper'
-import { Colors } from '../styles/Colors';
+import styled from 'styled-components';
+import Paper from '@mui/material/Paper';
+import Colors from '../styles/Colors';
 
 export const Card = styled(Paper)`
     padding: 20px;

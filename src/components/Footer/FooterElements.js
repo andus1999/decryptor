@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-import { Colors } from '../../styles/Colors';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import Colors from '../../styles/Colors';
 
 export const FooterContainer = styled.footer`
     background-color: ${Colors.black};
@@ -55,7 +55,6 @@ export const FooterLinkTitle = styled.h1`
     margin-bottom: 16px;
     padding: 0 8px;
 `;
-
 
 export const SocialMedia = styled.section`
     max-width: 1000px;

@@ -1,5 +1,5 @@
-import { createTheme } from "@mui/material";
-import { Colors } from "./Colors";
+import { createTheme } from '@mui/material';
+import Colors from './Colors';
 
 export const mainTheme = createTheme({
   palette: {
@@ -11,12 +11,12 @@ export const mainTheme = createTheme({
       main: Colors.white,
     },
     black: {
-      main: Colors.black
+      main: Colors.black,
     },
   },
   typography: {
     fontSize: 16,
-    fontFamily: "Sora",
+    fontFamily: 'Sora',
   },
   components: {
     MuiButton: {
@@ -30,83 +30,83 @@ export const mainTheme = createTheme({
 });
 
 export const LineChartOptions = {
-  interaction:{
+  interaction: {
     intersect: false,
     axis: 'x',
     mode: 'nearest',
   },
-  elements:{
-    point:{
+  elements: {
+    point: {
       radius: 3,
       borderWidth: 3,
       hoverRadius: 6,
       hoverBorderWidth: 2,
     },
-    line:{
-      borderWidth: 3
+    line: {
+      borderWidth: 3,
     },
   },
-  plugins:{
-    legend:{
+  plugins: {
+    legend: {
       display: false,
     },
-    tooltip:{
+    tooltip: {
       bodyColor: Colors.black,
       backgroundColor: Colors.white,
-      filter: function (x) {return x.datasetIndex === 0},
+      filter(x) { return x.datasetIndex === 0; },
       callbacks: {
-        label: function(context) {
-          var label = ' ';
+        label(context) {
+          let label = ' ';
 
           if (context.parsed.x) {
-            const date = new Date(context.parsed.x)
+            const date = new Date(context.parsed.x);
             label += Intl.DateTimeFormat('en-US', {
               month: 'short',
-              day: 'numeric'
+              day: 'numeric',
             }).format(date);
           }
-          if (context.parsed.x && context.parsed.y !== null){
+          if (context.parsed.x && context.parsed.y !== null) {
             label += ': ';
           }
           if (context.parsed.y !== null) {
             label += Number.parseFloat(context.parsed.y).toPrecision(3);
           }
           return label;
-        }
-      }
-    }
+        },
+      },
+    },
   },
   responsive: true,
   maintainAspectRatio: false,
-  scales:{
-    x:{
+  scales: {
+    x: {
       ticks: {
-        maxTicksLimit: 5
+        maxTicksLimit: 5,
       },
-      type:'time',
-      time:{
-        unit: 'day'
-      }
+      type: 'time',
+      time: {
+        unit: 'day',
+      },
     },
-    y:{
-      ticks:{
-        maxTicksLimit: 5
-      }
-    }
-  }
-}
+    y: {
+      ticks: {
+        maxTicksLimit: 5,
+      },
+    },
+  },
+};
 
 export const DoughnutChartOptions = {
-  elements:{
-      arc:{
-          borderRadius: 10,
-      }
+  elements: {
+    arc: {
+      borderRadius: 10,
+    },
   },
-  plugins:{
-      tooltip:{
-          bodyColor: Colors.black,
-          backgroundColor: Colors.white,
-          filter: function (x) { return x.dataIndex === 0},
-      }
-  }
-}
+  plugins: {
+    tooltip: {
+      bodyColor: Colors.black,
+      backgroundColor: Colors.white,
+      filter(x) { return x.dataIndex === 0; },
+    },
+  },
+};

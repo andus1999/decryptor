@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-import {FaTimes} from 'react-icons/fa'
-import {Link as LinkS} from 'react-scroll'
-import {Link as LinkR} from 'react-router-dom'
-import { Colors } from '../../styles/Colors'
+import styled from 'styled-components';
+import { FaTimes } from 'react-icons/fa';
+import { Link as LinkS } from 'react-scroll';
+import { Link as LinkR } from 'react-router-dom';
+import Colors from '../../styles/Colors';
 
 export const SidebarContainer = styled.div`
     position: fixed;

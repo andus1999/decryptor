@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { Link as LinkR } from 'react-router-dom'
-import { Link as LinkS } from 'react-scroll'
-import {Colors} from '../../styles/Colors'
+import styled from 'styled-components';
+import { Link as LinkR } from 'react-router-dom';
+import { Link as LinkS } from 'react-scroll';
+import Colors from '../../styles/Colors';
 
 export const Nav = styled.nav`
     background: ${({ scrollNav }) => (scrollNav ? Colors.black : 'transparent')};
@@ -39,7 +39,7 @@ export const NavLogo = styled(LinkR)`
     font-size: 1.5rem;
     display: flex;
     align-items: center;
-    margin-left: ${({center}) => (center ? '0px' : '24px')};
+    margin-left: ${({ center }) => (center ? '0px' : '24px')};
     font-weight: bold;
     text-decoration: none;
 `;

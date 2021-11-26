@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { Colors } from '../../styles/Colors'
-import { Link as LinkR } from 'react-router-dom'
+import styled from 'styled-components';
+import { Link as LinkR } from 'react-router-dom';
+import Colors from '../../styles/Colors';
 
 export const ServicesContainer = styled.div`
     background: ${Colors.black};
@@ -8,7 +8,7 @@ export const ServicesContainer = styled.div`
     text-align: center;
 `;
 
-export const ServicesWrapper = styled.div `
+export const ServicesWrapper = styled.div`
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 50px;
@@ -19,7 +19,6 @@ export const ServicesWrapper = styled.div `
 `;
 
 export const ServicesCard = styled(LinkR)`
-    min-height: 400px;
     padding: 20px 20px;
     color: ${Colors.black};
     text-decoration: none;
@@ -35,7 +34,6 @@ export const ServicesCard = styled(LinkR)`
         cursor: pointer;
     }
 `;
-
 
 export const ServicesIcon = styled.img`
     height: 160px;

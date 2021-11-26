@@ -1,7 +1,6 @@
-import styled from 'styled-components'
-import {MdKeyboardArrowRight, MdArrowForward} from 'react-icons/md'
-import { Colors } from '../../styles/Colors';
-
+import styled from 'styled-components';
+import { MdKeyboardArrowRight, MdArrowForward } from 'react-icons/md';
+import Colors from '../../styles/Colors';
 
 export const HeroContainer = styled.div`
     background: #0c0c0c;
@@ -86,7 +85,6 @@ export const HeroP = styled.p`
         font-size: 18px;
     }
 `;
-
 
 export const HeroBtnWrapper = styled.div`
     margin-top: 32px;
