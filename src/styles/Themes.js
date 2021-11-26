@@ -19,10 +19,17 @@ export const mainTheme = createTheme({
     fontFamily: 'Sora',
   },
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          borderRadius: '20px',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '100px',
+          borderRadius: '20px',
         },
       },
     },
