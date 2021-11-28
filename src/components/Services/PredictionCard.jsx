@@ -1,5 +1,7 @@
 import React from 'react';
+import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
+import { Link } from 'react-router-dom';
 import CustomPropTypes from '../../types/CustomPropTypes';
 import { CardContainer, Card } from '../CardElements';
 import {
@@ -22,7 +24,8 @@ function getLink(prediction) {
   return `/predictions/${link}`;
 }
 
-const PredictionCard = function servicesCardComponent({ prediction, img }) {
+const PredictionCard = function servicesCardComponent({ topPredictions, img, rank }) {
+  const prediction = topPredictions?.[rank - 1];
   return (
     <CardContainer>
       <Card
@@ -30,18 +33,35 @@ const PredictionCard = function servicesCardComponent({ prediction, img }) {
       >
         {prediction
           ? (
-            <ServicesCard to={getLink(prediction)} style={{ height: '400px' }}>
+            <ServicesCard style={{ height: '450px' }}>
               <ServicesIcon src={img} />
-              <ServicesH2>{`1. ${prediction.name}`}</ServicesH2>
-              <p style={pStyle}>Prediction</p>
-              <ServicesP>{`${round(prediction.prediction.average)} %`}</ServicesP>
+              <div style={{
+                height: '250px',
+                display: 'flex',
+                justifyContent: 'space-evenly',
+                alignItems: 'center',
+                flexDirection: 'column',
+                marginBottom: '20px',
+              }}
+              >
+                <ServicesH2>{`${rank}. ${prediction.name}`}</ServicesH2>
+                <p style={pStyle}>Prediction</p>
+                <ServicesP>{`${round(prediction.prediction.average)} %`}</ServicesP>
+              </div>
+              <Button
+                component={Link}
+                to={getLink(prediction)}
+                variant="contained"
+              >
+                Show Details
+              </Button>
             </ServicesCard>
           ) : (
             <div style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              height: '400px',
+              height: '450px',
             }}
             >
               <CircularProgress />
@@ -53,8 +73,13 @@ const PredictionCard = function servicesCardComponent({ prediction, img }) {
 };
 
 PredictionCard.propTypes = {
-  prediction: CustomPropTypes.prediction.isRequired,
+  topPredictions: CustomPropTypes.topPredictions,
   img: CustomPropTypes.string.isRequired,
+  rank: CustomPropTypes.number.isRequired,
+};
+
+PredictionCard.defaultProps = {
+  topPredictions: null,
 };
 
 export default PredictionCard;

@@ -17,16 +17,20 @@ const Services = function servicesCards({ predictions }) {
     <ServicesContainer id="topPredictions">
       <ServicesH1>Top Predictions</ServicesH1>
       <ServicesWrapper>
-        <ServicesCard prediction={topPredictions?.[0]} img={Winners} />
-        <ServicesCard prediction={topPredictions?.[1]} img={Rocket} />
-        <ServicesCard prediction={topPredictions?.[2]} img={Stars} />
+        <ServicesCard topPredictions={topPredictions} img={Winners} rank={1} />
+        <ServicesCard topPredictions={topPredictions} img={Rocket} rank={2} />
+        <ServicesCard topPredictions={topPredictions} img={Stars} rank={3} />
       </ServicesWrapper>
     </ServicesContainer>
   );
 };
 
 Services.propTypes = {
-  predictions: CustomPropTypes.predictions.isRequired,
+  predictions: CustomPropTypes.predictions,
+};
+
+Services.defaultProps = {
+  predictions: null,
 };
 
 export default Services;

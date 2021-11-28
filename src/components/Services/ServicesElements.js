@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link as LinkR } from 'react-router-dom';
 import Colors from '../../styles/Colors';
 
 export const ServicesContainer = styled.div`
@@ -18,7 +17,7 @@ export const ServicesWrapper = styled.div`
     }
 `;
 
-export const ServicesCard = styled(LinkR)`
+export const ServicesCard = styled.div`
     padding: 20px 20px;
     color: ${Colors.black};
     text-decoration: none;
@@ -27,12 +26,6 @@ export const ServicesCard = styled(LinkR)`
     justify-content: flex-start;
     align-items: center;
     transition: all 0.2s ease-in-out;
-
-    &:hover{
-        transform: scale(1.02);
-        transition: all 0.2s ease-in-out;
-        cursor: pointer;
-    }
 `;
 
 export const ServicesIcon = styled.img`
