@@ -86,7 +86,7 @@ const Endpoint = function endpointCard({ data, user }) {
       );
     }
     endpoint.push(
-      <div style={container} key={item}>
+      <div style={container} key={`slash ${item}`}>
         <h3 style={text}>/</h3>
       </div>,
     );
@@ -182,8 +182,12 @@ const Endpoint = function endpointCard({ data, user }) {
 };
 
 Endpoint.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
   data: CustomPropTypes.endpointData.isRequired,
+};
+
+Endpoint.defaultProps = {
+  user: null,
 };
 
 export default Endpoint;
