@@ -22,7 +22,7 @@ const sentiment = PropTypes.shape({
   sentiment_value: PropTypes.string,
 });
 
-const historicalData = PropTypes.arrayOf(marketData).isRequired;
+const historicalData = PropTypes.arrayOf(marketData);
 
 const { number } = PropTypes;
 
@@ -48,7 +48,7 @@ const user = PropTypes.shape({
   email: PropTypes.string.isRequired,
   freeApiCalls: PropTypes.number.isRequired,
   paidApiCalls: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   uid: PropTypes.string.isRequired,
 });
 
@@ -61,14 +61,14 @@ const endpointData = PropTypes.shape({
 const coinMetaData = PropTypes.shape({
   coin_id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  histrical_data: historicalData.isRequired,
+  historical_data: historicalData.isRequired,
   logo: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  source_code: PropTypes.string.isRequired,
-  technical_doc: PropTypes.string.isRequired,
+  source_code: PropTypes.string,
+  technical_doc: PropTypes.string,
   ticker: PropTypes.string.isRequired,
   timestamp: PropTypes.number.isRequired,
-  website: PropTypes.string.isRequired,
+  website: PropTypes.string,
   sentiment: sentiment.isRequired,
   headlines: PropTypes.arrayOf(headlineData).isRequired,
 });
