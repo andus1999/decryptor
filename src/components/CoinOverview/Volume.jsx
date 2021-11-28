@@ -68,7 +68,11 @@ const Volume = function volumeCard({ historicalData }) {
 };
 
 Volume.propTypes = {
-  historicalData: CustomPropTypes.historicalData.isRequired,
+  historicalData: CustomPropTypes.historicalData,
+};
+
+Volume.defaultProps = {
+  historicalData: null,
 };
 
 export default Volume;

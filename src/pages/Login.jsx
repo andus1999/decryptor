@@ -24,7 +24,11 @@ const Login = function loginScreen({ user }) {
 };
 
 Login.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
+};
+
+Login.defaultProps = {
+  user: null,
 };
 
 export default Login;

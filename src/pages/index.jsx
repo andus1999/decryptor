@@ -43,8 +43,13 @@ const Home = function homePage({ user, predictions }) {
 };
 
 Home.propTypes = {
-  user: CustomPropTypes.user.isRequired,
-  predictions: CustomPropTypes.prediction.isRequired,
+  user: CustomPropTypes.user,
+  predictions: CustomPropTypes.predictions,
+};
+
+Home.defaultProps = {
+  predictions: null,
+  user: null,
 };
 
 export default Home;

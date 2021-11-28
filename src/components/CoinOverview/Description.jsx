@@ -96,7 +96,11 @@ const Description = function descriptionCard({ metaData }) {
 };
 
 Description.propTypes = {
-  metaData: CustomPropTypes.coinMetaData.isRequired,
+  metaData: CustomPropTypes.coinMetaData,
+};
+
+Description.defaultProps = {
+  metaData: null,
 };
 
 export default Description;

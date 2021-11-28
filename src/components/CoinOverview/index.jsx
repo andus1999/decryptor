@@ -12,7 +12,7 @@ import Description from './Description';
 import CustomPropTypes from '../../types/CustomPropTypes';
 import Sentiment from './Sentiment';
 
-const CoinOverview = function CoinOverviewPage({ prediction, metaData, bitcoinMarketCap }) {
+const CoinOverview = function coinOverviewPage({ prediction, metaData, bitcoinMarketCap }) {
   const formatNumber = (number) => ((number > 0.1)
     ? Math.round(number * 100) / 100
     : number.toPrecision(2));
@@ -176,7 +176,11 @@ const CoinOverview = function CoinOverviewPage({ prediction, metaData, bitcoinMa
 CoinOverview.propTypes = {
   prediction: CustomPropTypes.prediction.isRequired,
   bitcoinMarketCap: CustomPropTypes.number.isRequired,
-  metaData: CustomPropTypes.coinMetaData.isRequired,
+  metaData: CustomPropTypes.coinMetaData,
+};
+
+CoinOverview.defaultProps = {
+  metaData: null,
 };
 
 export default CoinOverview;

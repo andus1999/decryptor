@@ -205,7 +205,11 @@ const PredictionTable = function materialPredictionTable({ predictions }) {
 };
 
 PredictionTable.propTypes = {
-  predictions: CustomPropTypes.predictions.isRequired,
+  predictions: CustomPropTypes.predictions,
+};
+
+PredictionTable.defaultProps = {
+  predictions: null,
 };
 
 export default withRouter(PredictionTable);

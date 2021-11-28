@@ -99,8 +99,12 @@ const ChartView = function chartViewCard({ historicalData, prediction }) {
 };
 
 ChartView.propTypes = {
-  historicalData: CustomPropTypes.historicalData.isRequired,
+  historicalData: CustomPropTypes.historicalData,
   prediction: CustomPropTypes.prediction.isRequired,
+};
+
+ChartView.defaultProps = {
+  historicalData: null,
 };
 
 export default ChartView;

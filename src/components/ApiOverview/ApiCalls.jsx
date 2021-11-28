@@ -100,7 +100,11 @@ const ApiCalls = function apiCallsBox({ user }) {
 };
 
 ApiCalls.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
+};
+
+ApiCalls.defaultProps = {
+  user: null,
 };
 
 export default ApiCalls;

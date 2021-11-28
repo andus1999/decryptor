@@ -66,7 +66,11 @@ const ApiEndpoints = function apiEndpointCards({ user }) {
 };
 
 ApiEndpoints.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
+};
+
+ApiEndpoints.defaultProps = {
+  user: null,
 };
 
 export default ApiEndpoints;

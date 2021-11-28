@@ -27,8 +27,13 @@ const Predictions = function predictionsOverview({ user, predictions }) {
 };
 
 Predictions.propTypes = {
-  user: CustomPropTypes.user.isRequired,
-  predictions: CustomPropTypes.predictions.isRequired,
+  user: CustomPropTypes.user,
+  predictions: CustomPropTypes.predictions,
+};
+
+Predictions.defaultProps = {
+  user: null,
+  predictions: null,
 };
 
 export default Predictions;

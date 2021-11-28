@@ -25,7 +25,7 @@ const App = function reactApp() {
 
   const auth = getAuth();
   const db = getFirestore();
-  const unsubscribeDB = () => {};
+  let unsubscribeDB = () => {};
 
   React.useEffect(() => {
     if (isSignInWithEmailLink(auth, window.location.href)) {
@@ -43,13 +43,13 @@ const App = function reactApp() {
     const unsubscribe = auth.onAuthStateChanged(async (data) => {
       if (data != null) {
         if (data.uid !== user?.uid) {
-          onSnapshot(doc(db, 'users', data.uid), (document) => {
+          unsubscribeDB = onSnapshot(doc(db, 'users', data.uid), (document) => {
             setUser(document.data());
-          });
+          }, () => {});
         }
       } else {
-        logEvent(analytics, 'logout', user);
         unsubscribeDB();
+        logEvent(analytics, 'logout', user);
         setUser(null);
       }
     });

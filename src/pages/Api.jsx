@@ -41,7 +41,11 @@ const Api = function apiInfo({ user }) {
 };
 
 Api.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
+};
+
+Api.defaultProps = {
+  user: null,
 };
 
 export default Api;

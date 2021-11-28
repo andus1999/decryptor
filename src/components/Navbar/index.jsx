@@ -125,8 +125,12 @@ const Navbar = function navBarComponent({ toggle, user }) {
 };
 
 Navbar.propTypes = {
-  user: CustomPropTypes.user.isRequired,
-  toggle: CustomPropTypes.boolean.isRequired,
+  user: CustomPropTypes.user,
+  toggle: CustomPropTypes.func.isRequired,
+};
+
+Navbar.defaultProps = {
+  user: null,
 };
 
 export default Navbar;

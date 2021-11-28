@@ -18,7 +18,11 @@ const ApiOverview = function apiOverviewSection({ user }) {
 };
 
 ApiOverview.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
+};
+
+ApiOverview.defaultProps = {
+  user: null,
 };
 
 export default ApiOverview;

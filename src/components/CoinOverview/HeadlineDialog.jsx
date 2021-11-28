@@ -15,17 +15,7 @@ import CustomPropTypes from '../../types/CustomPropTypes';
 const HeadlineDialog = function headlineMaterialDialog({ open, onClose, metaData }) {
   const headlineElements = metaData ? (metaData.headlines.map((it) => {
     const sentiment = it.sentiment_value;
-    let text = null;
-    if (sentiment === 'positive') {
-      text = 'Positive';
-    } else if (sentiment === 'neutral') {
-      text = 'Neutral';
-    } else if (sentiment === 'negative') {
-      text = 'Negative';
-    } else if (sentiment == null) {
-      text = 'Not enough data';
-    }
-    const secondary = `Sentiment: ${text}`;
+    const secondary = `Sentiment: ${sentiment}`;
     return (
       <>
         <ListItem>
@@ -63,9 +53,13 @@ const HeadlineDialog = function headlineMaterialDialog({ open, onClose, metaData
 };
 
 HeadlineDialog.propTypes = {
-  metaData: CustomPropTypes.coinMetaData.isRequired,
+  metaData: CustomPropTypes.coinMetaData,
   open: CustomPropTypes.boolean.isRequired,
   onClose: CustomPropTypes.func.isRequired,
+};
+
+HeadlineDialog.defaultProps = {
+  metaData: null,
 };
 
 export default HeadlineDialog;

@@ -56,8 +56,12 @@ const Sidebar = function sideBarElement({ isOpen, toggle, user }) {
 
 Sidebar.propTypes = {
   isOpen: CustomPropTypes.boolean.isRequired,
-  toggle: CustomPropTypes.boolean.isRequired,
-  user: CustomPropTypes.user.isRequired,
+  toggle: CustomPropTypes.func.isRequired,
+  user: CustomPropTypes.user,
+};
+
+Sidebar.defaultProps = {
+  user: null,
 };
 
 export default Sidebar;

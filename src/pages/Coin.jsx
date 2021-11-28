@@ -39,7 +39,7 @@ const Coin = function coinInfo({ user, predictions, bitcoinMarketCap }) {
   return (
     <div style={{ backgroundColor: 'white' }}>
       <LogoBanner user={user} />
-      {prediction == null ? (
+      {(prediction == null || bitcoinMarketCap == null) ? (
         <h1 style={{
           textAlign: 'center',
           padding: '50px',
@@ -63,9 +63,15 @@ const Coin = function coinInfo({ user, predictions, bitcoinMarketCap }) {
 };
 
 Coin.propTypes = {
-  user: CustomPropTypes.user.isRequired,
-  predictions: CustomPropTypes.predictions.isRequired,
-  bitcoinMarketCap: CustomPropTypes.number.isRequired,
+  user: CustomPropTypes.user,
+  predictions: CustomPropTypes.predictions,
+  bitcoinMarketCap: CustomPropTypes.number,
+};
+
+Coin.defaultProps = {
+  user: null,
+  predictions: null,
+  bitcoinMarketCap: null,
 };
 
 export default Coin;

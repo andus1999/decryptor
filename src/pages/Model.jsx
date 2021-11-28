@@ -23,14 +23,7 @@ const Model = function modelInfo({ user }) {
   React.useEffect(() => {
     const getModelData = async () => {
       const docSnap = await getDoc(doc(db, 'models', 'main'));
-      const data = docSnap.data().correlation_data;
-      setModelData(data.map((it) => {
-        const obj = {};
-        obj.correlation = it.test_correlation;
-        obj.valCorrelation = it.max_val_correlation;
-        obj.date = it.timestamp;
-        return obj;
-      }));
+      setModelData(docSnap.data());
     };
     getModelData();
     window.scrollTo(0, 0);
@@ -47,7 +40,11 @@ const Model = function modelInfo({ user }) {
 };
 
 Model.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
+};
+
+Model.defaultProps = {
+  user: null,
 };
 
 export default Model;

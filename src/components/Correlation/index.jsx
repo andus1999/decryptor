@@ -1,9 +1,10 @@
 import React from 'react';
+import { CircularProgress } from '@mui/material';
 import CorrelationGraph from './CorrelationGraph';
 import Colors from '../../styles/Colors';
 import CustomPropTypes from '../../types/CustomPropTypes';
 
-const Correlation = function CorrelationSection({ modelData }) {
+const Correlation = function correlationSection({ modelData }) {
   function roundNumber(number) {
     return Number.parseFloat(number).toPrecision(3);
   }
@@ -21,7 +22,7 @@ const Correlation = function CorrelationSection({ modelData }) {
         }}
         >
           <h2 style={{ marginBottom: '20px' }}>Correlation Data</h2>
-          {modelData && (
+          {modelData ? (
             <p style={{
               fontSize: '18px',
               lineHeight: '24px',
@@ -34,14 +35,15 @@ const Correlation = function CorrelationSection({ modelData }) {
               value of -1 means perfect negative correlation.
               The current test set correlation is
               {' '}
-              {roundNumber(modelData.at(-1).correlation)}
+              {roundNumber(modelData.correlation_data.at(-1).correlation)}
               .
               The best correlation ever achieved on the validation set was
               {' '}
-              {roundNumber(modelData.at(-1).valCorrelation)}
+              {roundNumber(modelData.correlation_data.at(-1).valCorrelation)}
               .
             </p>
-          )}
+          )
+            : <CircularProgress style={{ margin: '50px' }} />}
         </div>
         <CorrelationGraph modelData={modelData} />
       </div>
@@ -50,7 +52,11 @@ const Correlation = function CorrelationSection({ modelData }) {
 };
 
 Correlation.propTypes = {
-  modelData: CustomPropTypes.modelData.isRequired,
+  modelData: CustomPropTypes.modelData,
+};
+
+Correlation.defaultProps = {
+  modelData: null,
 };
 
 export default Correlation;

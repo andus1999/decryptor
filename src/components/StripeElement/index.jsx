@@ -54,11 +54,17 @@ const StripeElement = function stripeReactElement({ user, currency, amount }) {
           </h2>
           {user
             ? (
-              <Form
-                amount={amount}
-                currency={currency}
-                user={user}
-              />
+              <div>
+                {(amount && currency)
+                  ? (
+                    <Form
+                      amount={amount}
+                      currency={currency}
+                      user={user}
+                    />
+                  )
+                  : <p>Oops, something went wrong...</p>}
+              </div>
             )
             : (
               <Button
@@ -76,9 +82,13 @@ const StripeElement = function stripeReactElement({ user, currency, amount }) {
 };
 
 StripeElement.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
   amount: CustomPropTypes.number.isRequired,
   currency: CustomPropTypes.string.isRequired,
+};
+
+StripeElement.defaultProps = {
+  user: null,
 };
 
 export default StripeElement;

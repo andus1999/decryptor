@@ -63,7 +63,11 @@ const LogoBanner = function logoBannerSection({ user }) {
 };
 
 LogoBanner.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
+};
+
+LogoBanner.defaultProps = {
+  user: null,
 };
 
 export default LogoBanner;

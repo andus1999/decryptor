@@ -67,7 +67,11 @@ const Payments = function paymentScreen({ user }) {
 };
 
 Payments.propTypes = {
-  user: CustomPropTypes.user.isRequired,
+  user: CustomPropTypes.user,
+};
+
+Payments.defaultProps = {
+  user: null,
 };
 
 export default Payments;

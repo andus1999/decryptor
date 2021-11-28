@@ -10,7 +10,8 @@ const CorrelationGraph = function correlationGraphCard({ modelData }) {
   defaults.font.family = 'Sora';
   defaults.font.size = 16;
 
-  const correlation = modelData?.map((item) => ({ x: item.date * 1000, y: item.correlation }));
+  const correlation = modelData
+    ?.correlation_data.map((item) => ({ x: item.timestamp * 1000, y: item.test_correlation }));
 
   const data = {
     datasets: [
@@ -67,7 +68,11 @@ const CorrelationGraph = function correlationGraphCard({ modelData }) {
 };
 
 CorrelationGraph.propTypes = {
-  modelData: CustomPropTypes.modelData.isRequired,
+  modelData: CustomPropTypes.modelData,
+};
+
+CorrelationGraph.defaultProps = {
+  modelData: null,
 };
 
 export default CorrelationGraph;

@@ -70,8 +70,12 @@ const MarketCap = function marketCapCard({ historicalData, bitcoinMarketCap }) {
 };
 
 MarketCap.propTypes = {
-  historicalData: CustomPropTypes.historicalData.isRequired,
+  historicalData: CustomPropTypes.historicalData,
   bitcoinMarketCap: CustomPropTypes.number.isRequired,
+};
+
+MarketCap.defaultProps = {
+  historicalData: null,
 };
 
 export default MarketCap;
