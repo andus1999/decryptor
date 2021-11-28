@@ -94,7 +94,7 @@ const PredictionTable = function materialPredictionTable({ predictions }) {
     }
     return (Object.keys(predictions).filter((x) => predictions[x].name.toLocaleLowerCase()
       .includes(searchText.toLocaleLowerCase())
-        || x.ticker.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())))
+        || predictions[x].ticker.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())))
       .map((x) => predictions[x]);
   };
 
