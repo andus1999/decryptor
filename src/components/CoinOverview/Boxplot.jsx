@@ -34,7 +34,7 @@ const Boxplot = function boxplotCard({ prediction }) {
         >
           High and low predictions
         </div>
-        <div style={{ height: '350px' }}>
+        <div style={{ minHeight: '350px' }}>
           <Bar
             data={data}
             options={{

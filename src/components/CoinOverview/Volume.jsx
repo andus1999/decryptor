@@ -44,7 +44,7 @@ const Volume = function volumeCard({ historicalData }) {
           Volume in Million USD
         </div>
         <div style={{
-          height: '350px',
+          minHeight: '350px',
         }}
         >
           {historicalData == null ? (

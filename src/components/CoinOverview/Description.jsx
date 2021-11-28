@@ -14,6 +14,14 @@ const Description = function descriptionCard({ metaData }) {
         >
           Description
         </h2>
+        <div style={{
+          paddingBottom: '20px',
+          color: Colors.grey,
+          fontWeight: 400,
+        }}
+        >
+          General information
+        </div>
 
         <div style={{
           minHeight: '350px',

@@ -38,7 +38,7 @@ const MarketCap = function marketCapCard({ historicalData, bitcoinMarketCap }) {
         >
           Market Capitalization in USD
         </div>
-        <div style={{ height: '350px' }}>
+        <div style={{ minHeight: '350px' }}>
           {marketCap != null ? (
             <div style={{ paddingTop: '20px' }}>
               <p style={{

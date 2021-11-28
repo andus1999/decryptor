@@ -55,11 +55,9 @@ const IconItems = function iconItemsBanner({ prediction }) {
           fontWeight: 400,
         }}
         >
-          Prediction results for
-          {' '}
-          {prediction.currency}
+          Prediction data
         </div>
-        <div style={{ height: '350px' }}>
+        <div style={{ minHeight: '350px' }}>
           <div style={container}>
             <BiLineChartDown style={icon} />
             <div style={text}>

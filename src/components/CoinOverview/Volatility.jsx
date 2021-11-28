@@ -31,9 +31,9 @@ const Volatility = function volatilityCard({ prediction }) {
           fontWeight: 400,
         }}
         >
-          Expected Volatility
+          Expected volatility
         </div>
-        <div style={{ height: '350px' }}>
+        <div style={{ minHeight: '350px' }}>
           <div style={{ paddingTop: '20px' }}>
             <p style={{
               textAlign: 'center',

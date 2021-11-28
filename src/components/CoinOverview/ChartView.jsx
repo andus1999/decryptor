@@ -76,7 +76,7 @@ const ChartView = function chartViewCard({ historicalData, prediction }) {
         </div>
         {historicalData ? (
           <div style={{
-            height: '350px',
+            minHeight: '350px',
           }}
           >
             <Scatter

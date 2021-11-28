@@ -10,6 +10,7 @@ import Data from '../../media/data.svg';
 import MarketCap from './MarketCap';
 import Description from './Description';
 import CustomPropTypes from '../../types/CustomPropTypes';
+import Sentiment from './Sentiment';
 
 const CoinOverview = function CoinOverviewPage({ prediction, metaData, bitcoinMarketCap }) {
   const formatNumber = (number) => ((number > 0.1)
@@ -145,6 +146,7 @@ const CoinOverview = function CoinOverviewPage({ prediction, metaData, bitcoinMa
             historicalData={metaData?.historical_data}
             bitcoinMarketCap={bitcoinMarketCap}
           />
+          <Sentiment metaData={metaData} prediction={prediction} />
           <Description metaData={metaData} />
         </div>
       </div>
