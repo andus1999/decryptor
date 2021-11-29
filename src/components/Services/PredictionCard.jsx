@@ -20,7 +20,7 @@ const pStyle = {
 const round = (number) => Math.round(10000 * number) / 100;
 
 function getLink(prediction) {
-  const link = prediction.id;
+  const link = prediction.coin_id;
   return `/predictions/${link}`;
 }
 
