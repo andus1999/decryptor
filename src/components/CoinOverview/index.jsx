@@ -110,6 +110,7 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
         >
           <IconItems predictionData={predictionData} />
           <div style={{
+            width: '100%',
             maxWidth: '340px',
             display: 'inline-block',
             padding: '20px',
