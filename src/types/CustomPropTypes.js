@@ -42,7 +42,7 @@ const predictionData = PropTypes.shape({
   sentiment: sentiment.isRequired,
 });
 
-const predictions = PropTypes.objectOf(prediction);
+const predictions = PropTypes.objectOf(predictionData);
 
 const user = PropTypes.shape({
   email: PropTypes.string.isRequired,
@@ -107,7 +107,7 @@ const infoData = PropTypes.shape({
 
 const { string } = PropTypes;
 
-const topPredictions = PropTypes.arrayOf(prediction);
+const topPredictions = PropTypes.arrayOf(predictionData);
 
 const PropertyTypes = {
   predictionData,
