@@ -14,25 +14,12 @@ export const mainTheme = createTheme({
       main: Colors.black,
     },
   },
+  shape: {
+    borderRadius: 20,
+  },
   typography: {
     fontSize: 16,
     fontFamily: 'Sora',
-  },
-  components: {
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          borderRadius: '20px',
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: '20px',
-        },
-      },
-    },
   },
 });
 

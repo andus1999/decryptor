@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import Popper from '@mui/material/Popper';
+import CircularProgress from '@mui/material/CircularProgress';
+import { styled } from '@mui/material/styles';
+import CustomPropTypes from '../../types/CustomPropTypes';
 import Button from '@mui/material/Button';
 import { scroller } from 'react-scroll';
 import Video from '../../media/video.mp4';
+import Colors from '../../styles/Colors';
 
 import {
   HeroContainer,
@@ -15,8 +23,44 @@ import {
   ArrowRight,
 } from './HeroElements';
 
-const HeroSection = function heroSectionElement() {
+const CssTextField = styled(TextField)({
+  '& .MuiOutlinedInput-root': {
+    color: Colors.white,
+    '& fieldset': {
+      borderColor: Colors.white,
+    },
+    '&:hover fieldset': {
+      borderColor: Colors.white,
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: Colors.primary,
+    },
+  },
+  '& .MuiInputLabel-root': {
+    color: Colors.grey,
+  },
+});
+
+const StyledPopper = styled(Popper)({
+  "& .MuiAutocomplete-listbox": {
+    "& :hover": {
+      color: Colors.primary,
+    }
+  },
+});
+
+const HeroSection = function heroSectionElement({ predictions }) {
   const [hover, setHover] = useState(false);
+
+  const history = useHistory();
+
+  function push(coin) {
+    history.push(`/predictions/${coin}`);
+  }
+
+  const predictionArray = predictions 
+    ? Object.keys(predictions).map((key) => predictions[key])
+    : null;
 
   const onHover = () => {
     setHover(!hover);
@@ -31,6 +75,13 @@ const HeroSection = function heroSectionElement() {
     });
   };
 
+  const filter = (options, { inputValue }) => predictionArray
+    ? (predictionArray.filter((it) => (
+      it.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase()) 
+      || it.ticker.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase()))
+    ).map((it) => it.name))
+    : [];
+
   return (
     <HeroContainer>
       <HeroBg>
@@ -41,6 +92,36 @@ const HeroSection = function heroSectionElement() {
         <HeroP>
           Find out which coins to buy. With simple graphs and price predictions.
         </HeroP>
+        <Autocomplete
+          onChange={(event, newValue) => {
+            const predictionData = predictionArray.filter((it) => (it.name === newValue))?.[0];
+            if (predictionData != null) {
+              push(predictionData.coin_id);
+            }
+          }}
+          PopperComponent={StyledPopper}
+          style={{margin: '20px 0 0', width: '90%', maxWidth: '500px'}}
+          id="free-solo-demo"
+          loading={(predictionArray == null)}
+          freeSolo
+          options={predictionArray ? predictionArray.map((predictionData) => predictionData.name) : []}
+          filterOptions={filter}
+          renderInput={(params) => (
+            <CssTextField
+              {...params}
+              label="Search predictions" 
+              InputProps={{
+                ...params.InputProps,
+                endAdornment: (
+                  <React.Fragment>
+                    {predictionArray ? null : <CircularProgress color="inherit" size={20} />}
+                    {params.InputProps.endAdornment}
+                  </React.Fragment>
+                ),
+              }}
+            />
+          )}
+        />
         <HeroBtnWrapper>
           <Button
             onMouseEnter={onHover}
@@ -48,7 +129,7 @@ const HeroSection = function heroSectionElement() {
             variant="contained"
             onClick={scrollBehavior}
           >
-            Get started
+            Explore
             {' '}
             {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
@@ -57,5 +138,14 @@ const HeroSection = function heroSectionElement() {
     </HeroContainer>
   );
 };
+
+HeroSection.propTypes = {
+  predictions: CustomPropTypes.predictions,
+};
+
+HeroSection.defaultProps = {
+  predictions: null,
+};
+
 
 export default HeroSection;

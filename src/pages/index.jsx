@@ -32,7 +32,7 @@ const Home = function homePage({ user, predictions }) {
     <div style={{ backgroundColor: 'white' }}>
       <Sidebar isOpen={isOpen} toggle={toggle} user={user} />
       <Navbar toggle={toggle} user={user} />
-      <HeroSection />
+      <HeroSection predictions={predictions} />
       <InfoSection data={homeObjOne} />
       <InfoSection data={homeObjTwo} />
       <Services predictions={predictions} />
