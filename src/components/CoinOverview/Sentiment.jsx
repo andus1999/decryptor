@@ -5,7 +5,7 @@ import Colors from '../../styles/Colors';
 import HeadlineDialog from './HeadlineDialog';
 import CustomPropTypes from '../../types/CustomPropTypes';
 import positiveEmoji1 from '../../media/emoji/Partying face.svg';
-import positiveEmoji2 from '../../media/emoji/Smiling face with heart-eyes.svg';
+import positiveEmoji2 from '../../media/emoji/Smiling face with hearts.svg';
 import positiveEmoji3 from '../../media/emoji/Rocket.svg';
 
 import neutralEmoji1 from '../../media/emoji/Relieved face.svg';
