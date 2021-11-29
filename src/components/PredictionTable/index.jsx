@@ -76,6 +76,7 @@ const columns = [
 const PredictionTable = function materialPredictionTable({ predictions }) {
   const [searchText, setSearchText] = React.useState('');
   const [componentsMounted, setComponentsMounted] = React.useState(false);
+  const predictionArray = Object.keys(predictions).map((key) => predictions[key]);
 
   const classes = useStyles();
   const history = useHistory();
@@ -92,10 +93,9 @@ const PredictionTable = function materialPredictionTable({ predictions }) {
     if (predictions == null) {
       return [];
     }
-    return (Object.keys(predictions).filter((x) => predictions[x].name.toLocaleLowerCase()
+    return (predictionArray.filter((x) => x.name.toLocaleLowerCase()
       .includes(searchText.toLocaleLowerCase())
-        || predictions[x].ticker.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())))
-      .map((x) => predictions[x]);
+        || x.ticker.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())));
   };
 
   React.useEffect(() => {
