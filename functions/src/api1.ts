@@ -44,9 +44,19 @@ app.use("/api", async (req: Request, res: Response, next: NextFunction) => {
 });
 
 app.get("/api/v1/coins", async (req: Request, res: Response) => {
-  const coinRef = db.collection("predictions").limit(1);
+  const coinRef = db.collection("predictions").doc("main");
   const docSnap = await coinRef.get();
-  res.status(200).json(Object.keys(docSnap.docs[0].data()));
+  const docData = docSnap.data();
+  if (docData != undefined) {
+    const data = Object.keys(docData).map((it) => ({
+      name: docData[it].name,
+      coin_id: docData[it].coin_id,
+      ticker: docData[it].ticker,
+    }));
+    res.status(200).json(data);
+  } else {
+    res.status(500).json({error: "INTERNAL SERVER ERROR"});
+  }
 });
 
 app.get("/api/v1/coins/:coin", async (req: Request, res: Response) => {
@@ -62,9 +72,10 @@ app.get("/api/v1/coins/:coin", async (req: Request, res: Response) => {
 app.get("/api/v1/models", async (req: Request, res: Response) => {
   const coinRef = db.collection("models");
   const docSnap = await coinRef.get();
-  const data = docSnap.docs.map((doc) => {
-    return doc.data().model_id;
-  });
+  const data = docSnap.docs.map((doc) => ({
+    model_id: doc.data().model_id,
+    model_name: doc.data().model_name,
+  }));
   res.status(200).json(data);
 });
 
