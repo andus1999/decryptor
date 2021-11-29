@@ -1,0 +1,9 @@
+src/media/**
+public
+storage
+functions
+marketing
+node_modules
+build
+.firebase
+*.css
