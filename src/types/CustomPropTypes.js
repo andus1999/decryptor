@@ -27,7 +27,7 @@ const historicalData = PropTypes.arrayOf(marketData);
 const { number } = PropTypes;
 
 const prediction = PropTypes.shape({
-  id: PropTypes.string.isRequired,
+  coin_id: PropTypes.string.isRequired,
   market_data: marketData.isRequired,
   name: PropTypes.string.isRequired,
   prediction: PropTypes.shape({
