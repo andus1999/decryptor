@@ -17,8 +17,8 @@ const CoinOverview = function coinOverviewPage({ prediction, metaData, bitcoinMa
     ? Math.round(number * 100) / 100
     : number.toPrecision(2));
   const currency = prediction.name;
-  const predictionDate = new Date(prediction.timestampTarget * 1000);
-  const currentDate = new Date(prediction.date * 1000);
+  const predictionDate = new Date(prediction.prediction.timestamp * 1000).toLocaleDateString();
+  const currentDate = new Date(prediction.market_data.timestamp * 1000).toLocaleDateString();
   const current = prediction.market_data.close;
   const currentPrice = formatNumber(current);
   const predictionPrice = formatNumber(current * (1 + prediction.prediction.average));
@@ -80,9 +80,7 @@ const CoinOverview = function coinOverviewPage({ prediction, metaData, bitcoinMa
             <div style={whiteLine} />
             <div style={{ overflow: 'hidden', marginLeft: '20px' }}>
               <p style={hint}>
-                Current price as per
-                {currentDate.toLocaleDateString()}
-                .
+                {`Current price as per ${currentDate}.`}
               </p>
               <FaCoins style={{ fontSize: '1.5rem', color: Colors.white, display: 'inline-block' }} />
               <h2 style={{ color: Colors.white, display: 'inline-block', marginLeft: '30px' }}>{`${currentPrice} $`}</h2>
@@ -92,9 +90,7 @@ const CoinOverview = function coinOverviewPage({ prediction, metaData, bitcoinMa
             <div style={whiteLine} />
             <div style={{ overflow: 'hidden', marginLeft: '20px' }}>
               <p style={hint}>
-                Price target for
-                {predictionDate.toLocaleDateString()}
-                .
+                {`Price target for ${predictionDate}.`}
               </p>
               <FaCoins style={{ fontSize: '1.5rem', color: Colors.white, display: 'inline-block' }} />
               <h2 style={{ color: Colors.white, display: 'inline-block', marginLeft: '30px' }}>{`${predictionPrice} $`}</h2>
