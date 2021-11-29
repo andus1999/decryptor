@@ -6,7 +6,7 @@ import Colors from '../../styles/Colors';
 import { Card, CardContainer } from '../CardElements';
 import CustomPropTypes from '../../types/CustomPropTypes';
 
-const IconItems = function iconItemsBanner({ prediction }) {
+const IconItems = function iconItemsBanner({ predictionData }) {
   const formatNumber = (number) => Math.round(number * 10000) / 100;
 
   const container = {
@@ -62,28 +62,28 @@ const IconItems = function iconItemsBanner({ prediction }) {
             <BiLineChartDown style={icon} />
             <div style={text}>
               <h2 style={hint}>Lowest Prediction</h2>
-              <p style={value}>{`${formatNumber(prediction.prediction.low)} %`}</p>
+              <p style={value}>{`${formatNumber(predictionData.prediction.low)} %`}</p>
             </div>
           </div>
           <div style={container}>
             <FiTarget style={icon} />
             <div style={text}>
               <h2 style={hint}>Prediction Target</h2>
-              <p style={value}>{`${formatNumber(prediction.prediction.average)} %`}</p>
+              <p style={value}>{`${formatNumber(predictionData.prediction.average)} %`}</p>
             </div>
           </div>
           <div style={container}>
             <BiLineChart style={icon} />
             <div style={text}>
               <h2 style={hint}>Highest Prediction</h2>
-              <p style={value}>{`${formatNumber(prediction.prediction.high)} %`}</p>
+              <p style={value}>{`${formatNumber(predictionData.prediction.high)} %`}</p>
             </div>
           </div>
           <div style={container}>
             <MdOutlineWaterfallChart style={icon} />
             <div style={text}>
               <h2 style={hint}>Volatility Score</h2>
-              <p style={value}>{`${Math.round(prediction.prediction.volatility * 100)} Points`}</p>
+              <p style={value}>{`${Math.round(predictionData.prediction.volatility * 100)} Points`}</p>
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ const IconItems = function iconItemsBanner({ prediction }) {
 };
 
 IconItems.propTypes = {
-  prediction: CustomPropTypes.prediction.isRequired,
+  predictionData: CustomPropTypes.predictionData.isRequired,
 };
 
 export default IconItems;

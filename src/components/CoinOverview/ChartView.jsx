@@ -8,14 +8,14 @@ import CustomPropTypes from '../../types/CustomPropTypes';
 
 const convertTimeStamp = (timestamp) => (timestamp + 3600 * 24) * 1000;
 
-const ChartView = function chartViewCard({ historicalData, prediction }) {
+const ChartView = function chartViewCard({ historicalData, predictionData }) {
   defaults.font.family = 'Sora';
   defaults.font.size = 16;
-  const currentPrice = prediction.market_data.close;
-  const targetPrice = currentPrice * (1 + prediction.prediction.average);
-  const targetPriceLow = currentPrice * (1 + prediction.prediction.low);
-  const targetPriceHigh = currentPrice * (1 + prediction.prediction.high);
-  const predictionTimeStamp = prediction.prediction.timestamp;
+  const currentPrice = predictionData.market_data.close;
+  const targetPrice = currentPrice * (1 + predictionData.prediction.average);
+  const targetPriceLow = currentPrice * (1 + predictionData.prediction.low);
+  const targetPriceHigh = currentPrice * (1 + predictionData.prediction.high);
+  const predictionTimeStamp = predictionData.prediction.timestamp;
   const predictions = historicalData
     ?.map((x) => ({ x: convertTimeStamp(x.timestamp), y: x.close }));
   predictions?.push({ x: predictionTimeStamp * 1000, y: targetPrice });
@@ -100,7 +100,7 @@ const ChartView = function chartViewCard({ historicalData, prediction }) {
 
 ChartView.propTypes = {
   historicalData: CustomPropTypes.historicalData,
-  prediction: CustomPropTypes.prediction.isRequired,
+  predictionData: CustomPropTypes.predictionData.isRequired,
 };
 
 ChartView.defaultProps = {

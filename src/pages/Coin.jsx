@@ -22,7 +22,7 @@ const Coin = function coinInfo({ user, predictions, bitcoinMarketCap }) {
   }, []);
 
   const coinLink = location.pathname.split('/').at(-1);
-  const prediction = predictions?.[coinLink];
+  const predictionData = predictions?.[coinLink];
 
   React.useEffect(() => {
     const getMetaData = async () => {
@@ -39,7 +39,7 @@ const Coin = function coinInfo({ user, predictions, bitcoinMarketCap }) {
   return (
     <div style={{ backgroundColor: 'white' }}>
       <LogoBanner user={user} />
-      {(prediction == null || bitcoinMarketCap == null) ? (
+      {(predictionData == null || bitcoinMarketCap == null) ? (
         <h1 style={{
           textAlign: 'center',
           padding: '50px',
@@ -51,7 +51,7 @@ const Coin = function coinInfo({ user, predictions, bitcoinMarketCap }) {
       ) : (
         <div>
           <CoinOverview
-            prediction={prediction}
+            predictionData={predictionData}
             metaData={metaData}
             bitcoinMarketCap={bitcoinMarketCap}
           />

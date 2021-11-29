@@ -4,12 +4,12 @@ import { Card, CardContainer } from '../CardElements';
 import Colors from '../../styles/Colors';
 import CustomPropTypes from '../../types/CustomPropTypes';
 
-const Boxplot = function boxplotCard({ prediction }) {
+const Boxplot = function boxplotCard({ predictionData }) {
   defaults.font.family = 'Sora';
   defaults.font.size = 16;
-  const { low } = prediction.prediction;
-  const { average } = prediction.prediction;
-  const { high } = prediction.prediction;
+  const { low } = predictionData.prediction;
+  const { average } = predictionData.prediction;
+  const { high } = predictionData.prediction;
 
   const data = {
     labels: ['Low', 'High'],
@@ -59,7 +59,7 @@ const Boxplot = function boxplotCard({ prediction }) {
 };
 
 Boxplot.propTypes = {
-  prediction: CustomPropTypes.prediction.isRequired,
+  predictionData: CustomPropTypes.predictionData.isRequired,
 };
 
 export default Boxplot;

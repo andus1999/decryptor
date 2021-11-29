@@ -12,16 +12,16 @@ import Description from './Description';
 import CustomPropTypes from '../../types/CustomPropTypes';
 import Sentiment from './Sentiment';
 
-const CoinOverview = function coinOverviewPage({ prediction, metaData, bitcoinMarketCap }) {
+const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitcoinMarketCap }) {
   const formatNumber = (number) => ((number > 0.1)
     ? Math.round(number * 100) / 100
     : number.toPrecision(2));
-  const currency = prediction.name;
-  const predictionDate = new Date(prediction.prediction.timestamp * 1000).toLocaleDateString();
-  const currentDate = new Date(prediction.market_data.timestamp * 1000).toLocaleDateString();
-  const current = prediction.market_data.close;
+  const currency = predictionData.name;
+  const predictionDate = new Date(predictionData.prediction.timestamp * 1000).toLocaleDateString();
+  const currentDate = new Date(predictionData.market_data.timestamp * 1000).toLocaleDateString();
+  const current = predictionData.market_data.close;
   const currentPrice = formatNumber(current);
-  const predictionPrice = formatNumber(current * (1 + prediction.prediction.average));
+  const predictionPrice = formatNumber(current * (1 + predictionData.prediction.average));
   const hint = {
     color: Colors.grey,
     margin: '20px 0 20px 0',
@@ -108,7 +108,7 @@ const CoinOverview = function coinOverviewPage({ prediction, metaData, bitcoinMa
           textAlign: 'center',
         }}
         >
-          <IconItems prediction={prediction} />
+          <IconItems predictionData={predictionData} />
           <div style={{
             maxWidth: '340px',
             display: 'inline-block',
@@ -134,15 +134,15 @@ const CoinOverview = function coinOverviewPage({ prediction, metaData, bitcoinMa
             </div>
             <img style={{ width: '100%' }} src={Data} alt="" />
           </div>
-          <Volatility prediction={prediction} />
-          <Boxplot prediction={prediction} />
-          <ChartView prediction={prediction} historicalData={metaData?.historical_data} />
+          <Volatility predictionData={predictionData} />
+          <Boxplot predictionData={predictionData} />
+          <ChartView predictionData={predictionData} historicalData={metaData?.historical_data} />
           <Volume historicalData={metaData?.historical_data} />
           <MarketCap
             historicalData={metaData?.historical_data}
             bitcoinMarketCap={bitcoinMarketCap}
           />
-          <Sentiment metaData={metaData} prediction={prediction} />
+          <Sentiment metaData={metaData} predictionData={predictionData} />
           <Description metaData={metaData} />
         </div>
       </div>
@@ -170,7 +170,7 @@ const CoinOverview = function coinOverviewPage({ prediction, metaData, bitcoinMa
 };
 
 CoinOverview.propTypes = {
-  prediction: CustomPropTypes.prediction.isRequired,
+  predictionData: CustomPropTypes.predictionData.isRequired,
   bitcoinMarketCap: CustomPropTypes.number.isRequired,
   metaData: CustomPropTypes.coinMetaData,
 };

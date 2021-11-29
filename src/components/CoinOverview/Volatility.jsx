@@ -5,10 +5,10 @@ import { Card, CardContainer } from '../CardElements';
 import { DoughnutChartOptions } from '../../styles/Themes';
 import CustomPropTypes from '../../types/CustomPropTypes';
 
-const Volatility = function volatilityCard({ prediction }) {
+const Volatility = function volatilityCard({ predictionData }) {
   defaults.font.family = 'Sora';
   defaults.font.size = 16;
-  const volatility = Math.round(prediction.prediction.volatility * 100);
+  const volatility = Math.round(predictionData.prediction.volatility * 100);
 
   const data = {
     datasets: [{
@@ -54,7 +54,7 @@ const Volatility = function volatilityCard({ prediction }) {
 };
 
 Volatility.propTypes = {
-  prediction: CustomPropTypes.prediction.isRequired,
+  predictionData: CustomPropTypes.predictionData.isRequired,
 };
 
 export default Volatility;
