@@ -14,7 +14,7 @@ import CustomPropTypes from '../../types/CustomPropTypes';
 
 const BuyCalls = function buyCallsCard({ user }) {
   const history = useHistory();
-  const [amount, setAmount] = React.useState(0);
+  const [amount, setAmount] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [currency, setCurrency] = React.useState('eur');
   const analytics = getAnalytics();
@@ -57,7 +57,7 @@ const BuyCalls = function buyCallsCard({ user }) {
   const onChange = (event) => {
     const value = parseInt(event.target.value, 10);
     if (value <= 0 || Number.isNaN(value)) {
-      setAmount(0);
+      setAmount('');
     } else {
       setAmount(value);
     }
