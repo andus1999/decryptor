@@ -76,7 +76,9 @@ const columns = [
 const PredictionTable = function materialPredictionTable({ predictions }) {
   const [searchText, setSearchText] = React.useState('');
   const [componentsMounted, setComponentsMounted] = React.useState(false);
-  const predictionArray = Object.keys(predictions).map((key) => predictions[key]);
+  const predictionArray = predictions
+    ? Object.keys(predictions).map((key) => predictions[key])
+    : null;
 
   const classes = useStyles();
   const history = useHistory();
@@ -168,6 +170,7 @@ const PredictionTable = function materialPredictionTable({ predictions }) {
         <div style={{ padding: '20px 5% 30px 5%', maxWidth: '1400px', margin: '0 auto' }}>
           <ThemeProvider theme={mainTheme}>
             <DataGrid
+              getRowId={(row) => row.coin_id}
               className={classes.root}
               rows={getRows()}
               columns={columns}
