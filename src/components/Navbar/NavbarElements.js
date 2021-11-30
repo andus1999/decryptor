@@ -14,11 +14,11 @@ export const Nav = styled.nav`
     position: sticky;
     top: 0;
     z-index: 10;
-    transition: 0.2s all ease-out;
+    transition: 0.1s all ease-out;
 
 
     @media screen and (max-width: 960px) {
-        transition: 0.2s all ease;
+        transition: 0.1s all ease;
     }
 `;
 
@@ -113,10 +113,10 @@ export const NavBtnLink = styled(LinkR)`
     outline: none;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
     text-decoration: none;
     &:hover {
-        transition: all 0.2s ease-in-out;
+        transition: all 0.1s ease-in-out;
         background: ${Colors.white};
         color: ${Colors.black};
     }

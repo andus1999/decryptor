@@ -28,7 +28,7 @@ const InfoSection = function infoSection({ data }) {
     scroller.scrollTo(directions, {
       duration: 500,
       smooth: true,
-      offset: 0,
+      offset: -80,
     });
   };
   return (

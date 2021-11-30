@@ -21,7 +21,7 @@ const Correlation = function correlationSection({ modelData }) {
           textAlign: 'left',
         }}
         >
-          <h2 style={{ marginBottom: '20px' }}>Correlation Data</h2>
+          <h1 style={{ marginBottom: '20px' }}>Correlation Data</h1>
           {modelData ? (
             <p style={{
               fontSize: '18px',
@@ -42,8 +42,10 @@ const Correlation = function correlationSection({ modelData }) {
               {roundNumber(modelData.correlation_data.at(-1).valCorrelation)}
               .
             </p>
-          )
-            : <CircularProgress style={{ margin: '50px' }} />}
+          ) : (
+            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <CircularProgress />
+              </div>)}
         </div>
         <CorrelationGraph modelData={modelData} />
       </div>

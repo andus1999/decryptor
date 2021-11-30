@@ -1,4 +1,5 @@
 import React from 'react';
+import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Link } from 'react-router-dom';
@@ -34,17 +35,21 @@ const PredictionCard = function servicesCardComponent({ topPredictions, img, ran
         {prediction
           ? (
             <ServicesCard style={{ height: '450px' }}>
-              <ServicesIcon src={img} />
+              <div style={{height: '160px', display: 'flex', alignItems: 'center'}}>
+                <ServicesIcon src={img} />
+              </div>
+              <ServicesH2>{`${rank}. ${prediction.name}`}</ServicesH2>
               <div style={{
-                height: '250px',
+                height: '200px',
                 display: 'flex',
-                justifyContent: 'space-evenly',
+                justifyContent: 'flex-end',
                 alignItems: 'center',
                 flexDirection: 'column',
                 marginBottom: '20px',
+                rowGap: '20px',
               }}
               >
-                <ServicesH2>{`${rank}. ${prediction.name}`}</ServicesH2>
+                <Divider style={{ width: '100%' }} />
                 <p style={pStyle}>Prediction</p>
                 <ServicesP>{`${round(prediction.prediction.average)} %`}</ServicesP>
               </div>

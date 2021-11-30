@@ -38,13 +38,10 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
   };
 
   return (
-    <div style={{
-
-    }}
+    <div style={{}}
     >
       <div style={{
         background: Colors.black,
-        marginTop: '80px',
       }}
       >
         <div style={{

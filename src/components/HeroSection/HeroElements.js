@@ -21,9 +21,9 @@ export const HeroContainer = styled.div`
         right: 0;
         background: linear-gradient(
             180deg, 
-            rgba(0,0,0,0.5) 0%, 
-            rgba(0,0,0,1) 100%),
-        linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 100%);
+            ${Colors.black + '88'} 0%, 
+            ${Colors.black} 100%),
+        linear-gradient(180deg, ${Colors.black + 'aa'} 0%, transparent 100%);
         z-index: 2;
     }
 `;

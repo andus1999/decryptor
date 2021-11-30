@@ -1,4 +1,5 @@
 import React from 'react';
+import Divider from '@mui/material/Divider';
 import Data from './Data';
 import Endpoint from './Endpoint';
 import Colors from '../../styles/Colors';
@@ -12,13 +13,14 @@ const ApiEndpoints = function apiEndpointCards({ user }) {
       style={{
         maxWidth: '1100px',
         margin: '0 auto',
-        padding: '100px 0',
+        padding: '50px 0',
       }}
       id="endpoints"
     >
+      <Divider />
       <h1 style={{
         textAlign: 'center',
-        marginBottom: '20px',
+        margin: '40px 0 20px',
       }}
       >
         API Endpoints

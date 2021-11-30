@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Divider from '@mui/material/Divider';
 import { DataGrid } from '@mui/x-data-grid';
 import { makeStyles } from '@mui/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -116,13 +117,16 @@ const PredictionTable = function materialPredictionTable({ predictions }) {
   }, [history]);
 
   return (
-    <div>
+    <div style={{paddingTop: '40px'}}>
+      <Divider style={{ 
+        maxWidth: '900px', 
+        padding: '0 5%', 
+        margin: '0 auto', }}/>
       <h1
         style={{
-          height: '80px',
+          padding: '40px',
           width: '100%',
           textAlign: 'center',
-          lineHeight: '80px',
         }}
         ref={ref}
         id="predictions"
@@ -178,7 +182,7 @@ const PredictionTable = function materialPredictionTable({ predictions }) {
               pageSize={10}
               autoHeight
               onCellClick={(params) => {
-                onCoinClick(params.row.id);
+                onCoinClick(params.row.coin_id);
               }}
             />
           </ThemeProvider>
