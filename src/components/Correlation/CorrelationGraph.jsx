@@ -11,7 +11,7 @@ const CorrelationGraph = function correlationGraphCard({ modelData }) {
   defaults.font.size = 16;
 
   const correlation = modelData
-    ?.correlation_data.map((item) => ({ x: item.timestamp * 1000, y: item.test_correlation }));
+    ?.correlation_data.slice(-30).map((item) => ({ x: item.timestamp * 1000, y: item.test_correlation }));
 
   const data = {
     datasets: [
