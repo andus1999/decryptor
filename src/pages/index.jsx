@@ -33,9 +33,9 @@ const Home = function homePage({ user, predictions }) {
       <Sidebar isOpen={isOpen} toggle={toggle} user={user} />
       <Navbar toggle={toggle} user={user} />
       <HeroSection predictions={predictions} />
+      <Services predictions={predictions} />
       <InfoSection data={homeObjOne} />
       <InfoSection data={homeObjTwo} />
-      <Services predictions={predictions} />
       <InfoSection data={homeObjThree} />
       <Footer />
     </div>

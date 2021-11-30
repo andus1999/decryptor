@@ -48,6 +48,18 @@ const Navbar = function navBarComponent({ toggle, user }) {
           <FaBars />
         </MobileIcon>
         <NavMenu>
+        <NavItem>
+            <NavLinks
+              to="topPredictions"
+              smooth="true"
+              duration={500}
+              spy
+              exact="true"
+              offset={-80}
+            >
+              Top Predictions
+            </NavLinks>
+          </NavItem>
           <NavItem>
             <NavLinks
               to="about"
@@ -70,18 +82,6 @@ const Navbar = function navBarComponent({ toggle, user }) {
               offset={-80}
             >
               Model
-            </NavLinks>
-          </NavItem>
-          <NavItem>
-            <NavLinks
-              to="topPredictions"
-              smooth="true"
-              duration={500}
-              spy
-              exact="true"
-              offset={-80}
-            >
-              Top Predictions
             </NavLinks>
           </NavItem>
           <NavItem>

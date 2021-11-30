@@ -21,9 +21,9 @@ const Sidebar = function sideBarElement({ isOpen, toggle, user }) {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
+          <SidebarLink onClick={toggle} to="topPredictions" offset={-80}>Top Predictions</SidebarLink>
           <SidebarLink onClick={toggle} to="about" offset={-80}>About</SidebarLink>
           <SidebarLink onClick={toggle} to="model" offset={-80}>Model</SidebarLink>
-          <SidebarLink onClick={toggle} to="topPredictions" offset={-80}>Top Predictions</SidebarLink>
           <SidebarLink onClick={toggle} to="api" offset={-80}>API</SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
