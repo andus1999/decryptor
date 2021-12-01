@@ -7,6 +7,8 @@ import { modelDescription, dataDescription } from '../components/InfoSection/Dat
 import LogoBanner from '../components/LogoBanner';
 import Correlation from '../components/Correlation';
 import CustomPropTypes from '../types/CustomPropTypes';
+import PageContainer from './PageContainer';
+
 
 const Model = function modelInfo({ user }) {
   React.useEffect(() => {
@@ -29,13 +31,13 @@ const Model = function modelInfo({ user }) {
     window.scrollTo(0, 0);
   }, [db]);
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <PageContainer>
       <LogoBanner user={user} />
       <InfoSection data={modelDescription} />
       <Correlation modelData={modelData} />
       <InfoSection data={dataDescription} />
       <Footer />
-    </div>
+    </PageContainer>
   );
 };
 

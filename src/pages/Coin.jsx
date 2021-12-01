@@ -6,6 +6,8 @@ import CoinOverview from '../components/CoinOverview';
 import LogoBanner from '../components/LogoBanner';
 import Footer from '../components/Footer';
 import CustomPropTypes from '../types/CustomPropTypes';
+import PageContainer from './PageContainer';
+
 
 const Coin = function coinInfo({ user, predictions, bitcoinMarketCap }) {
   const [metaData, setMetaData] = React.useState(null);
@@ -37,7 +39,7 @@ const Coin = function coinInfo({ user, predictions, bitcoinMarketCap }) {
   }, [metaData, db, coinLink]);
 
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <PageContainer>
       <LogoBanner user={user} />
       {(predictionData == null || bitcoinMarketCap == null) ? (
         <h1 style={{
@@ -58,7 +60,7 @@ const Coin = function coinInfo({ user, predictions, bitcoinMarketCap }) {
         </div>
       )}
       <Footer />
-    </div>
+    </PageContainer>
   );
 };
 

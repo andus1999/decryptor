@@ -8,6 +8,8 @@ import { homeObjOne, homeObjTwo, homeObjThree } from '../components/InfoSection/
 import Services from '../components/Services';
 import Footer from '../components/Footer';
 import CustomPropTypes from '../types/CustomPropTypes';
+import PageContainer from './PageContainer';
+
 
 const Home = function homePage({ user, predictions }) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -29,7 +31,7 @@ const Home = function homePage({ user, predictions }) {
   };
 
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <PageContainer>
       <Sidebar isOpen={isOpen} toggle={toggle} user={user} />
       <Navbar toggle={toggle} user={user} />
       <HeroSection predictions={predictions} />
@@ -38,7 +40,7 @@ const Home = function homePage({ user, predictions }) {
       <InfoSection data={homeObjTwo} />
       <InfoSection data={homeObjThree} />
       <Footer />
-    </div>
+    </PageContainer>
   );
 };
 

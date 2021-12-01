@@ -10,6 +10,7 @@ import { apiDescription } from '../components/InfoSection/Data';
 import LogoBanner from '../components/LogoBanner';
 import PaymentDialog from '../components/StripeElement/PaymentDialog';
 import CustomPropTypes from '../types/CustomPropTypes';
+import PageContainer from './PageContainer';
 
 const Api = function apiInfo({ user }) {
   React.useEffect(() => {
@@ -27,7 +28,7 @@ const Api = function apiInfo({ user }) {
     stripePromise = loadStripe('pk_live_51Jrpx0Ke5TUGpxZvEiomXVy7xlRLB5wx75iLEubyMLglfNhynjzsFEbkWOEU5VGtanYXEDL4B9J41uJKTbIlqKY800J2Yct2LW');
   }
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <PageContainer>
       <LogoBanner user={user} />
       <InfoSection data={apiDescription} />
       <ApiOverview user={user} />
@@ -36,7 +37,7 @@ const Api = function apiInfo({ user }) {
         <PaymentDialog />
       </Elements>
       <Footer />
-    </div>
+    </PageContainer>
   );
 };
 

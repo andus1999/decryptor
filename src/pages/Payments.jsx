@@ -8,6 +8,8 @@ import LogoBanner from '../components/LogoBanner';
 import StripeElement from '../components/StripeElement';
 import Colors from '../styles/Colors';
 import CustomPropTypes from '../types/CustomPropTypes';
+import PageContainer from './PageContainer';
+
 
 const appearance = {
   theme: 'flat',
@@ -52,7 +54,7 @@ const Payments = function paymentScreen({ user }) {
   };
 
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <PageContainer>
       <LogoBanner user={user} />
       <Elements stripe={stripePromise} options={options}>
         <StripeElement
@@ -62,7 +64,7 @@ const Payments = function paymentScreen({ user }) {
         />
       </Elements>
       <Footer />
-    </div>
+    </PageContainer>
   );
 };
 

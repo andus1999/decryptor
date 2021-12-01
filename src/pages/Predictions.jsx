@@ -6,6 +6,8 @@ import InfoSection from '../components/InfoSection';
 import { predictionDescription } from '../components/InfoSection/Data';
 import LogoBanner from '../components/LogoBanner';
 import CustomPropTypes from '../types/CustomPropTypes';
+import PageContainer from './PageContainer';
+
 
 const Predictions = function predictionsOverview({ user, predictions }) {
   React.useEffect(() => {
@@ -17,12 +19,12 @@ const Predictions = function predictionsOverview({ user, predictions }) {
   }, []);
 
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <PageContainer>
       <LogoBanner user={user} />
       <InfoSection data={predictionDescription} />
       <PredictionTable predictions={predictions} />
       <Footer />
-    </div>
+    </PageContainer>
   );
 };
 

@@ -4,6 +4,8 @@ import LogoBanner from '../components/LogoBanner';
 import LoginElement from '../components/LoginElement';
 import Footer from '../components/Footer';
 import CustomPropTypes from '../types/CustomPropTypes';
+import PageContainer from './PageContainer';
+
 
 const Login = function loginScreen({ user }) {
   React.useEffect(() => {
@@ -15,11 +17,11 @@ const Login = function loginScreen({ user }) {
   }, []);
 
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <PageContainer>
       <LogoBanner user={user} />
       <LoginElement user={user} />
       <Footer />
-    </div>
+    </PageContainer>
   );
 };
 
