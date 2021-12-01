@@ -101,7 +101,7 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
         left: '-5%',
         background: Colors.primary,
         height: '10px',
-        transform: 'rotate(0.2deg)',
+        transform: `rotate(${Math.random()-0.5}deg)`,
         width: '110%',
       }} 
       />
