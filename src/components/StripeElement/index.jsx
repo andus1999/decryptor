@@ -20,7 +20,7 @@ const StripeElement = function stripeReactElement({ user, currency, amount }) {
   return (
     <div style={{
       textAlign: 'center',
-      margin: '100px 0',
+      margin: '100px 0 50px',
     }}
     >
       <CardContainer style={{ maxWidth: '600px' }}>
@@ -42,10 +42,7 @@ const StripeElement = function stripeReactElement({ user, currency, amount }) {
             {' '}
             API calls.
           </h3>
-          <h2 style={{
-            margin: '30px',
-          }}
-          >
+          <h2>
             Price:
             {' '}
             {(amount / 100).toFixed(2)}
@@ -68,6 +65,7 @@ const StripeElement = function stripeReactElement({ user, currency, amount }) {
             )
             : (
               <Button
+                style={{margin: '30px 0 20px'}}
                 variant="contained"
                 component={Link}
                 to="/sign-in"

@@ -1,8 +1,6 @@
 import React from 'react';
 import { useStripe, useElements, PaymentElement } from '@stripe/react-stripe-js';
-import Button from '@mui/material/Button';
-import { CircularProgress } from '@mui/material';
-import Fade from '@mui/material/Fade';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Colors from '../../styles/Colors';
 import CustomPropTypes from '../../types/CustomPropTypes';
 
@@ -42,39 +40,35 @@ const Form = function paymentForm({ amount, user, currency }) {
   };
 
   return (
-    <form style={{ padding: '10px' }} onSubmit={handleSubmit}>
-      <div>
+    <form 
+      style={{
+        padding: '0 10px',
+      }} 
+      onSubmit={handleSubmit}
+    >
+      <div style={{
+        height: loading ? '0px' : 'auto',
+        marginTop: loading ? '0px' : '30px',
+      }}>
         <PaymentElement onReady={() => setLoading(false)} />
       </div>
       {error && (
       <h3 style={{
-        margin: '30px 0',
+        margin: '30px 0 0',
         color: Colors.primary,
       }}
       >
         {error}
       </h3>
       )}
-      <div style={{
-        padding: '0 0 20px',
-        display: 'inline-block',
-      }}
+      <LoadingButton
+        style={{margin: '30px 0 20px'}}
+        loading={loading}
+        variant="contained"
+        type="submit"
       >
-        <div>
-          <Fade in={loading}>
-            <CircularProgress />
-          </Fade>
-        </div>
-        <Fade in={!loading}>
-          <Button
-            variant="contained"
-            size="large"
-            type="submit"
-          >
-            Submit
-          </Button>
-        </Fade>
-      </div>
+        Submit
+      </LoadingButton>
     </form>
   );
 };

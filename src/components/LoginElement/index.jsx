@@ -112,7 +112,7 @@ export default withRouter(() => {
   return (
     <div style={{
       textAlign: 'center',
-      margin: '100px 0',
+      margin: '100px 0 50px',
     }}
     >
       <CardContainer style={{ maxWidth: '680px' }}>
