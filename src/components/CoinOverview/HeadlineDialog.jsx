@@ -17,14 +17,14 @@ const HeadlineDialog = function headlineMaterialDialog({ open, onClose, metaData
     const sentiment = it.sentiment_value;
     const secondary = `Sentiment: ${sentiment}`;
     return (
-      <>
-        <ListItem key={it.headline.toLowerCase()}>
+      <div key={it.headline.toLowerCase()}>
+        <ListItem>
           <ListItemButton component="a" href={it.link} target="_blank">
             <ListItemText primary={it.headline} secondary={secondary} />
           </ListItemButton>
         </ListItem>
-        <Divider key={`${it.headline.toLowerCase()} divider`} />
-      </>
+        <Divider />
+      </div>
     );
   })) : null;
   return (
