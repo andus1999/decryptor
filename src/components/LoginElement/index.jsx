@@ -96,8 +96,8 @@ export default withRouter(() => {
           },
         },
       ],
-      tosUrl: '<tos-url>',
-      privacyPolicyUrl: '<privacy-policy-url>',
+      tosUrl: '/terms-of-service.html',
+      privacyPolicyUrl: '/privacy-policy.html',
     };
 
     if (firebaseui.auth.AuthUI.getInstance()) {
