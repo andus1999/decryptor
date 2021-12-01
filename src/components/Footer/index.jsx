@@ -6,6 +6,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import FooterButton from './FooterButton';
 import RequestCoinDialog from './RequestCoinDialog';
 import ReportIssueDialog from './ReportIssueDialog';
+import Colors from '../../styles/Colors';
 import {
   FooterContainer,
   FooterWrap,
@@ -50,6 +51,14 @@ const Footer = function footerElement() {
       />
 
       <FooterContainer>
+        <div style={{
+          left: '-5%',
+          background: Colors.primary,
+          height: '10px',
+          transform: 'rotate(1deg)',
+          width: '110%',
+        }} 
+        />
         <FooterWrap>
           <FooterLinksContainer>
             <FoooterLinksWrapper>

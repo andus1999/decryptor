@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Divider from '@mui/material/Divider';
 import { FaCoins } from 'react-icons/fa';
 import Colors from '../../styles/Colors';
 import ChartView from './ChartView';
@@ -11,6 +12,8 @@ import MarketCap from './MarketCap';
 import Description from './Description';
 import CustomPropTypes from '../../types/CustomPropTypes';
 import Sentiment from './Sentiment';
+
+const getRotation = (seed) =>  Math.sin(seed/10) * 10;
 
 const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitcoinMarketCap }) {
   const formatNumber = (number) => ((number > 0.1)
@@ -38,8 +41,7 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
   };
 
   return (
-    <div style={{}}
-    >
+    <div style={{width: '100%', position: 'relative'}}>  
       <div style={{
         background: Colors.black,
       }}
@@ -96,6 +98,14 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
         </div>
       </div>
       <div style={{
+        left: '-5%',
+        background: Colors.primary,
+        height: '10px',
+        transform: 'rotate(0.2deg)',
+        width: '110%',
+      }} 
+      />
+      <div style={{
         maxWidth: '1100px',
         margin: '0 auto',
       }}
@@ -103,8 +113,11 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
         <div style={{
           margin: '40px 3% 40px 3%',
           textAlign: 'center',
+          position: 'relative',
+          zIndex: 1,
         }}
         >
+          <Divider />
           <IconItems predictionData={predictionData} />
           <div style={{
             width: '100%',
@@ -133,15 +146,19 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
             <img style={{ width: '100%' }} src={Data} alt="" />
           </div>
           <Volatility predictionData={predictionData} />
+          <Divider />
           <Boxplot predictionData={predictionData} />
           <ChartView predictionData={predictionData} historicalData={metaData?.historical_data} />
+          <Divider />
           <Volume historicalData={metaData?.historical_data} />
           <MarketCap
             historicalData={metaData?.historical_data}
             bitcoinMarketCap={bitcoinMarketCap}
           />
+          <Divider />
           <Sentiment metaData={metaData} predictionData={predictionData} />
           <Description metaData={metaData} />
+          <Divider />
         </div>
       </div>
       <div style={{
@@ -163,6 +180,32 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
           Predictions are not exact and true values may vary significantly.
         </p>
       </div>
+      <div>
+        <div style={{
+            borderRadius: '10px',
+            zIndex: 0,
+            bottom: '70%',
+            position: 'absolute',
+            left: '10%',
+            background: Colors.primary,
+            height: '10px',
+            transform: `rotate(${getRotation(currency.charCodeAt(0))}deg)`,
+            width: '80%',
+          }} 
+          />
+          <div style={{
+            borderRadius: '10px',
+            zIndex: 0,
+            bottom: '30%',
+            position: 'absolute',
+            left: '10%',
+            background: Colors.primary,
+            height: '10px',
+            transform: `rotate(${getRotation(currency.charCodeAt(2))}deg)`,
+            width: '80%',
+          }} 
+          />
+        </div>
     </div>
   );
 };

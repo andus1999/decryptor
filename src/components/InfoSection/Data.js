@@ -17,6 +17,7 @@ export const homeObjOne = {
   buttonLabel: 'Show Predictions',
   imgStart: false,
   img: bitcoin,
+  designAccent: true,
 };
 
 export const homeObjTwo = {
@@ -31,6 +32,7 @@ export const homeObjTwo = {
   buttonLabel: 'Learn More',
   imgStart: true,
   img: model,
+  designAccent: true,
 };
 
 export const homeObjThree = {
@@ -45,6 +47,7 @@ export const homeObjThree = {
   buttonLabel: 'Get Started',
   imgStart: true,
   img: server,
+  designAccent: true,
 };
 
 export const predictionDescription = {
@@ -59,6 +62,7 @@ export const predictionDescription = {
   buttonLabel: 'Show Predictions',
   imgStart: false,
   img: prediction,
+  designAccentBottom: true,
 };
 
 export const modelDescription = {
@@ -73,6 +77,7 @@ export const modelDescription = {
   buttonLabel: 'Show Correlation',
   imgStart: true,
   img: model,
+  designAccentBottom: true,
 };
 
 export const dataDescription = {
@@ -87,6 +92,7 @@ export const dataDescription = {
   buttonLabel: 'Show Predictions',
   imgStart: false,
   img: analytics,
+  designAccent: true,
 };
 
 export const apiDescription = {
@@ -101,4 +107,5 @@ export const apiDescription = {
   buttonLabel: 'See Endpoints',
   imgStart: false,
   img: server,
+  designAccentBottom: true,
 };

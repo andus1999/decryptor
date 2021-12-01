@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import { scroller } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 import CustomPropTypes from '../../types/CustomPropTypes';
+import Colors from '../../styles/Colors';
 import {
   InfoContainer,
   InfoWrapper,
@@ -18,11 +19,13 @@ import {
   Img,
 } from './InfoElements';
 
+const getRotation = (seed) => Math.sin(seed);
+
 const InfoSection = function infoSection({ data }) {
   const {
     button, router, lightBg, id, directions,
     imgStart, topLine, headline, description, buttonLabel,
-    img,
+    img, designAccent, designAccentBottom,
   } = data;
   const scrollBehavior = () => {
     scroller.scrollTo(directions, {
@@ -33,7 +36,19 @@ const InfoSection = function infoSection({ data }) {
   };
   return (
     <InfoContainer lightBg={lightBg} id={id}>
-      <InfoWrapper>
+      {(designAccent) &&
+        <>
+          <div style={{
+            left: '-5%',
+            background: Colors.primary,
+            height: '10px',
+            transform: `rotate(${getRotation(description.charCodeAt(20))}deg)`,
+            width: '110%',
+          }} 
+          />
+        </>
+      }
+      <InfoWrapper lightBg={lightBg}>
         <InfoRow imgStart={imgStart}>
           <Column1>
             <TextWrapper>
@@ -70,6 +85,18 @@ const InfoSection = function infoSection({ data }) {
           </Column2>
         </InfoRow>
       </InfoWrapper>
+      {(designAccentBottom) &&
+        <>
+          <div style={{
+            left: '-5%',
+            background: Colors.primary,
+            height: '10px',
+            transform: `rotate(${getRotation(description.charCodeAt(20))}deg)`,
+            width: '110%',
+          }} 
+          />
+        </>
+      }
     </InfoContainer>
   );
 };
