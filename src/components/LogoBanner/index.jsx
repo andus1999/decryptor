@@ -1,4 +1,5 @@
 import React from 'react';
+import Snackbar from '@mui/material/Snackbar';
 import { getAuth, signOut } from 'firebase/auth';
 import { Link, useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
@@ -9,9 +10,17 @@ import {
 import CustomPropTypes from '../../types/CustomPropTypes';
 
 const LogoBanner = function logoBannerSection({ user }) {
+  const [showSnackbar, setShowsnackbar] = React.useState(false);
   const history = useHistory();
   return (
     <>
+      <Snackbar
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        autoHideDuration={6000}
+        open={showSnackbar}
+        onClose={() => setShowsnackbar(false)}
+        message="Successfully signed out."
+      />
       <Nav scrollNav>
         <NavbarContainer>
           <div style={{
@@ -41,6 +50,7 @@ const LogoBanner = function logoBannerSection({ user }) {
                   event.preventDefault();
                   const auth = getAuth();
                   signOut(auth);
+                  setShowsnackbar(true);
                 }}
               >
                 Sign Out

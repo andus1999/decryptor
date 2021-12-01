@@ -22,11 +22,27 @@ export const mainTheme = createTheme({
     fontFamily: 'Sora',
   },
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: `0px 11px 15px -7px ${Colors.shadow}, 0px 24px 38px 3px ${Colors.shadow}, 0px 9px 46px 8px ${Colors.shadow}`,
+        },
+      },
+    },
     MuiBackdrop: {
       styleOverrides: {
         root: {
           backgroundColor: 'rgba(0, 0, 0, .5)',
           backdropFilter: 'blur(5px)',
+        },
+      },
+    },
+    MuiSnackbarContent: {
+      styleOverrides: {
+        root: {
+          border: `1px solid ${Colors.lightGrey}`,
+          backgroundColor: Colors.white,
+          color: Colors.black,
         },
       },
     },
