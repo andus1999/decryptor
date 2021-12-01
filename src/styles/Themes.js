@@ -21,6 +21,16 @@ export const mainTheme = createTheme({
     fontSize: 16,
     fontFamily: 'Sora',
   },
+  components: {
+    MuiBackdrop: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgba(0, 0, 0, .5)',
+          backdropFilter: 'blur(5px)',
+        },
+      },
+    },
+  },
 });
 
 export const LineChartOptions = {
