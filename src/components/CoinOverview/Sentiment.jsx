@@ -20,7 +20,7 @@ import noDataEmoji from '../../media/emoji/Face without mouth.svg';
 
 const randomChoice = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-const Description = function descriptionCard({ metaData, predictionData }) {
+const Sentiment = function sentimentCard({ metaData, predictionData }) {
   const [open, setOpen] = React.useState(false);
   const sentiment = predictionData.sentiment.sentiment_value;
   let imgSrc = null;
@@ -113,9 +113,15 @@ const Description = function descriptionCard({ metaData, predictionData }) {
   );
 };
 
-Description.propTypes = {
+Sentiment.propTypes = {
   predictionData: CustomPropTypes.predictionData.isRequired,
-  metaData: CustomPropTypes.coinMetaData.isRequired,
+  metaData: CustomPropTypes.coinMetaData,
 };
 
-export default Description;
+Sentiment.defaultProps = {
+  metaData: null,
+};
+
+
+
+export default Sentiment;
