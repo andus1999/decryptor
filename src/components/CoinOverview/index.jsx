@@ -25,6 +25,10 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
   const current = predictionData.market_data.close;
   const currentPrice = formatNumber(current);
   const predictionPrice = formatNumber(current * (1 + predictionData.prediction.average));
+  const marketDataSlice = window.innerWidth >= 600 ? 30 : 10;
+  const historicalData = metaData
+    ? metaData.historical_data.slice(-marketDataSlice)
+    : null
   const hint = {
     color: Colors.grey,
     margin: '20px 0 20px 0',
@@ -148,11 +152,11 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
           <Volatility predictionData={predictionData} />
           <Divider />
           <Boxplot predictionData={predictionData} />
-          <ChartView predictionData={predictionData} historicalData={metaData?.historical_data} />
+          <ChartView predictionData={predictionData} historicalData={historicalData} />
           <Divider />
-          <Volume historicalData={metaData?.historical_data} />
+          <Volume historicalData={historicalData} />
           <MarketCap
-            historicalData={metaData?.historical_data}
+            historicalData={historicalData}
             bitcoinMarketCap={bitcoinMarketCap}
           />
           <Divider />

@@ -9,9 +9,9 @@ import CustomPropTypes from '../../types/CustomPropTypes';
 const CorrelationGraph = function correlationGraphCard({ modelData }) {
   defaults.font.family = 'Sora';
   defaults.font.size = 16;
-
+  const correlationDataSlice = window.innerWidth >= 600 ? 30 : 10;
   const correlation = modelData
-    ?.correlation_data.slice(-30).map((item) => ({ x: item.timestamp * 1000, y: item.test_correlation }));
+    ?.correlation_data.slice(-correlationDataSlice).map((item) => ({ x: item.timestamp * 1000, y: item.test_correlation }));
 
   const data = {
     datasets: [
