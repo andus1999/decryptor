@@ -13,7 +13,7 @@ export const homeObjOne = {
   lightBg: true,
   topLine: 'About',
   headline: 'Crptocurrency Evaluation',
-  description: 'Decrytor uses machine learning to predict price movements of crypto-assets. You can access all predictions for free. Click the the button below to see current price predictions.',
+  description: 'Decryptor uses machine learning to predict price movements of crypto-assets. You can access all predictions for free. Click the button below to see current price predictions.',
   buttonLabel: 'Show Predictions',
   imgStart: false,
   img: bitcoin,
