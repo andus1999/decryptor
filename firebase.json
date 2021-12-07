@@ -6,16 +6,20 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [ {
-      "source": "/api/v1/**",
-      "function": "api1"
-    }, {
-      "source": "/stripe/**",
-      "function": "stripe"
-    }, {
-      "source": "**",
-      "destination": "/index.html"
-    } ]
+    "rewrites": [
+      {
+        "source": "/api/v1/**",
+        "function": "api1"
+      },
+      {
+        "source": "/stripe/**",
+        "function": "stripe"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   },
   "functions": {
     "predeploy": [
