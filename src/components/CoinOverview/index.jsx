@@ -13,8 +13,6 @@ import Description from './Description';
 import CustomPropTypes from '../../types/CustomPropTypes';
 import Sentiment from './Sentiment';
 
-const getRotation = (seed) =>  Math.sin(seed/10) * 10;
-
 const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitcoinMarketCap }) {
   const formatNumber = (number) => ((number > 0.1)
     ? Math.round(number * 100) / 100
@@ -104,8 +102,7 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
       <div style={{
         left: '-5%',
         background: Colors.primary,
-        height: '10px',
-        transform: `rotate(${Math.random()-0.5}deg)`,
+        height: '5px',
         width: '110%',
       }} 
       />
@@ -184,32 +181,7 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
           Predictions are not exact and true values may vary significantly.
         </p>
       </div>
-      <div>
-        <div style={{
-            borderRadius: '10px',
-            zIndex: 0,
-            bottom: '70%',
-            position: 'absolute',
-            left: '10%',
-            background: Colors.primary,
-            height: '10px',
-            transform: `rotate(${getRotation(currency.charCodeAt(0))}deg)`,
-            width: '80%',
-          }} 
-          />
-          <div style={{
-            borderRadius: '10px',
-            zIndex: 0,
-            bottom: '30%',
-            position: 'absolute',
-            left: '10%',
-            background: Colors.primary,
-            height: '10px',
-            transform: `rotate(${getRotation(currency.charCodeAt(2))}deg)`,
-            width: '80%',
-          }} 
-          />
-        </div>
+      
     </div>
   );
 };

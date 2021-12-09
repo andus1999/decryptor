@@ -19,8 +19,6 @@ import {
   Img,
 } from './InfoElements';
 
-const getRotation = (seed) => Math.sin(seed);
-
 const InfoSection = function infoSection({ data }) {
   const {
     button, router, lightBg, id, directions,
@@ -41,8 +39,7 @@ const InfoSection = function infoSection({ data }) {
           <div style={{
             left: '-5%',
             background: Colors.primary,
-            height: '10px',
-            transform: `rotate(${getRotation(description.charCodeAt(20))}deg)`,
+            height: '5px',
             width: '110%',
           }} 
           />
@@ -90,8 +87,7 @@ const InfoSection = function infoSection({ data }) {
           <div style={{
             left: '-5%',
             background: Colors.primary,
-            height: '10px',
-            transform: `rotate(${getRotation(description.charCodeAt(20))}deg)`,
+            height: '5px',
             width: '110%',
           }} 
           />

@@ -54,8 +54,7 @@ const Footer = function footerElement() {
         <div style={{
           left: '-5%',
           background: Colors.primary,
-          height: '10px',
-          transform: 'rotate(1deg)',
+          height: '5px',
           width: '110%',
         }} 
         />
