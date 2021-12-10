@@ -4,6 +4,7 @@ import Colors from '../../styles/Colors';
 
 export const FooterContainer = styled.footer`
     background-color: ${Colors.black};
+    box-shadow: 0 50vh 0 50vh ${Colors.black};
 `;
 
 export const FooterWrap = styled.div`

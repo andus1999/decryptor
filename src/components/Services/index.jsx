@@ -1,7 +1,7 @@
 import React from 'react';
-import Winners from '../../media/winners.svg';
-import Rocket from '../../media/rocket.svg';
-import Stars from '../../media/stars.svg';
+import Winners from '../../media/winners';
+import Rocket from '../../media/rocket';
+import Stars from '../../media/stars';
 import CustomPropTypes from '../../types/CustomPropTypes';
 import {
   ServicesContainer,

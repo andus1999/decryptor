@@ -6,6 +6,7 @@ const PageContainer = function pageContainer({ children }) {
   return (
     <div style ={{
       background: Colors.white,
+      color: Colors.black,
       overflowX: 'hidden',
     }}
     >

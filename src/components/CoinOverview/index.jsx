@@ -7,7 +7,7 @@ import Volume from './Volume';
 import IconItems from './IconItems';
 import Volatility from './Volatility';
 import Boxplot from './Boxplot';
-import Data from '../../media/data.svg';
+import Data from '../../media/data';
 import MarketCap from './MarketCap';
 import Description from './Description';
 import CustomPropTypes from '../../types/CustomPropTypes';

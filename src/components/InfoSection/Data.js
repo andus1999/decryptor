@@ -1,8 +1,8 @@
-import prediction from '../../media/prediction.svg';
-import model from '../../media/model.svg';
-import server from '../../media/server.svg';
-import analytics from '../../media/analytics.svg';
-import bitcoin from '../../media/bitcoin.svg';
+import prediction from '../../media/prediction';
+import model from '../../media/model';
+import server from '../../media/server';
+import analytics from '../../media/analytics';
+import bitcoin from '../../media/bitcoin';
 // import serverDown from '../../media/serverDown.svg'
 
 export const homeObjOne = {
