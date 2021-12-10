@@ -9,53 +9,68 @@ import { Card, CardContainer } from '../CardElements';
 import Colors from '../../styles/Colors';
 
 const AuthContainer = styled.div`
-    margin: 30px 0 100px 0;
+  margin: 30px 0 100px 0;
 
-    .firebaseui-idp-google>.firebaseui-idp-text{
+  .firebaseui-idp-google>.firebaseui-idp-text{
     color: ${Colors.black}
-    }
+  }
 
-    button[data-provider-id="password"], button[data-provider-id="github.com"]{
+  button[data-provider-id="password"], button[data-provider-id="github.com"]{
     background-color: ${Colors.black} !important;
-    }
-    button[data-provider-id="google.com"]{
+  }
+  button[data-provider-id="google.com"]{
     background-color: ${Colors.white} !important;
-    }
-    a{
-    color: ${Colors.black}
-    }
-    .firebaseui-idp-button {
-        border-radius: 100px;
-    }
+  }
+  a{
+  color: ${Colors.black}
+  }
+  .firebaseui-idp-button {
+      border-radius: 100px;
+  }
 
-    .firebaseui-textfield.mdl-textfield .firebaseui-label:after {
-        background-color: ${Colors.primary} !important;
-    }
+  .firebaseui-button {
+      border-radius: 100px;
+      color: ${Colors.primary};
+  }
 
-    .mdl-progress > .progressbar {
-        background-color: ${Colors.primary} !important;
-    }
+  .mdl-button--colored {
+    background: ${Colors.primary} !important;
+    color: ${Colors.white} !important;
+  }
+  
+  .mdl-button--colored:hover{
+    background-color: ${Colors.primaryLight} !important;
+  }
 
-    .mdl-progress > .bufferbar {
-        background-image: linear-gradient(
-                90deg,
-                hsla(0, 0%, 100%, 0.7),
-                hsla(0, 0%, 100%, 0.7)
-            ),
-            linear-gradient(90deg, ${Colors.primary}, ${Colors.primary}) !important;
-        z-index: 0;
-        left: 0;
-    }
+  .firebaseui-textfield.mdl-textfield .firebaseui-label:after {
+      background-color: ${Colors.primary} !important;
+  }
 
-    .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
-    .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
-        background-image: linear-gradient(
-                90deg,
-                hsla(0, 0%, 100%, 0.9),
-                hsla(0, 0%, 100%, 0.9)
-            ),
-            linear-gradient(90deg, ${Colors.primary}, ${Colors.primary}) !important;
-}`;
+  .mdl-progress > .progressbar {
+      background-color: ${Colors.primary} !important;
+  }
+
+  .mdl-progress > .bufferbar {
+      background-image: linear-gradient(
+              90deg,
+              hsla(0, 0%, 100%, 0.7),
+              hsla(0, 0%, 100%, 0.7)
+          ),
+          linear-gradient(90deg, ${Colors.primary}, ${Colors.primary}) !important;
+      z-index: 0;
+      left: 0;
+  }
+
+  .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
+  .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
+    background-image: linear-gradient(
+            90deg,
+            hsla(0, 0%, 100%, 0.9),
+            hsla(0, 0%, 100%, 0.9)
+        ),
+        linear-gradient(90deg, ${Colors.primary}, ${Colors.primary}) !important;
+  }
+`;
 
 export default withRouter(() => {
   const history = useHistory();
