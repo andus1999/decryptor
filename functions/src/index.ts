@@ -37,9 +37,13 @@ exports.cleanupUser = functions.auth.user().onDelete(async (user) => {
   return;
 });
 
-exports.refreshFreeApiCalls = functions.pubsub.schedule("every day 00:00").onRun(async () => {
-  const batch = db.batch();
-  const query = await db.collection("users").where("freeApiCalls", "<", dailyFreeApiCalls).get();
-  query.forEach((d) => batch.update(d.ref, {freeApiCalls: dailyFreeApiCalls}));
-  await batch.commit();
-});
+exports.refreshFreeApiCalls = functions.pubsub.schedule("0 0 * * *")
+    .timeZone("Etc/UTC")
+    .onRun(async () => {
+      const batch = db.batch();
+      const query = await db.collection("users")
+          .where("freeApiCalls", "<", dailyFreeApiCalls).get();
+      query.forEach((d) => batch
+          .update(d.ref, {freeApiCalls: dailyFreeApiCalls}));
+      await batch.commit();
+    });
