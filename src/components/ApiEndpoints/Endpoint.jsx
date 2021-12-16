@@ -15,7 +15,7 @@ const Endpoint = function endpointCard({ data, user }) {
   const [loading, setLoading] = React.useState(false);
   const analytics = getAnalytics();
 
-  const url = 'https://decryptor.xyz/api/v1';
+  const url = 'decryptor.xyz/api/v1';
 
   const getApiUrl = () => {
     let apiUrl = url;
