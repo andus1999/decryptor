@@ -69,10 +69,14 @@ const SupportDialog = function supportMaterialDialog({ open, onClose, user }) {
           variant="outlined"
           sx={{marginTop: '20px'}}
         />}
-        {user && <DialogContentText style={{ margin: '20px 0' }}>
-          The response to your question will be sent to the following email address:
-           {user.email}.
-        </DialogContentText>}
+        {user && <>
+          <DialogContentText style={{ margin: '20px 0' }}>
+            The response to your question will be sent to the following email address:
+          </DialogContentText>
+          <DialogContentText>
+            {user.email}
+          </DialogContentText>
+        </>}
       </DialogContent>
       <DialogActions>
         <div style={{ padding: '10px' }}>
