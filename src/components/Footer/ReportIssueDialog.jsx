@@ -17,8 +17,8 @@ const ReportIssueDialog = function reportIssueMaterialDialog({ open, onClose }) 
   const [loading, setLoading] = React.useState(false);
   const db = getFirestore();
 
-  const closeDialog = () => {
-    onClose();
+  const closeDialog = (success=false) => {
+    onClose(success);
     setLoading(false);
     setIssue('');
   };
@@ -34,13 +34,20 @@ const ReportIssueDialog = function reportIssueMaterialDialog({ open, onClose }) 
         issue,
       }),
     }, { merge: true });
-    closeDialog();
+    closeDialog(true);
   };
 
   return (
-    <Dialog open={open} onClose={closeDialog}>
+    <Dialog 
+      open={open} 
+      onClose={closeDialog}
+    >
       <DialogTitle>Report an Issue</DialogTitle>
-      <DialogContent>
+      <DialogContent sx={{
+        width: '600px',
+        maxWidth: '100%',
+      }}
+      >
         <DialogContentText style={{ margin: '20px 0' }}>
           Please describe the issue.
         </DialogContentText>

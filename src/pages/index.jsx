@@ -39,7 +39,7 @@ const Home = function homePage({ user, predictions }) {
       <InfoSection data={homeObjOne} />
       <InfoSection data={homeObjTwo} />
       <InfoSection data={homeObjThree} />
-      <Footer />
+      <Footer user={user} />
     </PageContainer>
   );
 };

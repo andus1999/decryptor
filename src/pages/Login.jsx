@@ -20,7 +20,7 @@ const Login = function loginScreen({ user }) {
     <PageContainer>
       <LogoBanner user={user} />
       <LoginElement user={user} />
-      <Footer />
+      <Footer user={user} />
     </PageContainer>
   );
 };

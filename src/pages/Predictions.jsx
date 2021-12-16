@@ -23,7 +23,7 @@ const Predictions = function predictionsOverview({ user, predictions }) {
       <LogoBanner user={user} />
       <InfoSection data={predictionDescription} />
       <PredictionTable predictions={predictions} />
-      <Footer />
+      <Footer user={user} />
     </PageContainer>
   );
 };

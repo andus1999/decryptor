@@ -36,7 +36,7 @@ const Model = function modelInfo({ user }) {
       <InfoSection data={modelDescription} />
       <Correlation modelData={modelData} />
       <InfoSection data={dataDescription} />
-      <Footer />
+      <Footer user={user} />
     </PageContainer>
   );
 };

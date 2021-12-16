@@ -63,7 +63,7 @@ const Payments = function paymentScreen({ user }) {
           user={user}
         />
       </Elements>
-      <Footer />
+      <Footer user={user} />
     </PageContainer>
   );
 };

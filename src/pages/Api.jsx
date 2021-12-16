@@ -36,7 +36,7 @@ const Api = function apiInfo({ user }) {
       <Elements stripe={stripePromise}>
         <PaymentDialog />
       </Elements>
-      <Footer />
+      <Footer user={user} />
     </PageContainer>
   );
 };

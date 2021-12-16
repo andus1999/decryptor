@@ -12,33 +12,34 @@ import {
 } from 'firebase/firestore';
 import CustomPropTypes from '../../types/CustomPropTypes';
 
-const RequestCoinDialog = function requestCoinMaterialDialog({ open, onClose }) {
-  const [coin, setCoin] = React.useState('');
-  const [link, setLink] = React.useState('');
+const SupportDialog = function supportMaterialDialog({ open, onClose, user }) {
+  const [question, setQuestion] = React.useState('');
   const [loading, setLoading] = React.useState(false);
+  const [email, setEmail] = React.useState(user?.email);
   const db = getFirestore();
 
   const closeDialog = (success=false) => {
     onClose(success);
     setLoading(false);
-    setCoin('');
-    setLink('');
+    setQuestion('');
+    setEmail('');
   };
 
-  const onCoinChange = (e) => {
-    setCoin(e.target.value);
+  const onChange = (e) => {
+    setQuestion(e.target.value);
   };
 
-  const onLinkChange = (e) => {
-    setLink(e.target.value);
+  const onChangeMail = (e) => {
+    setEmail(e.target.value);
   };
 
-  const request = async () => {
+  const report = async () => {
     setLoading(true);
     await setDoc(doc(db, 'aggregations', 'issues'), {
-      missing_coins: arrayUnion({
-        name: coin,
-        link,
+      open_questions: arrayUnion({
+        question,
+        email,
+        name: user ? user.name : null,
       }),
     }, { merge: true });
     closeDialog(true);
@@ -46,29 +47,28 @@ const RequestCoinDialog = function requestCoinMaterialDialog({ open, onClose }) 
 
   return (
     <Dialog open={open} onClose={closeDialog}>
-      <DialogTitle>Request a missing Coin</DialogTitle>
+      <DialogTitle>Contact support</DialogTitle>
       <DialogContent>
         <DialogContentText style={{ margin: '20px 0' }}>
-          Provide the name of the coin or asset you would like to be added to our dataset.
+          Please ask a question below.
         </DialogContentText>
         <TextField
+          multiline
+          onChange={onChange}
           autoFocus
-          onChange={onCoinChange}
           autoComplete="off"
-          label="Name"
+          label="Question"
           fullWidth
           variant="outlined"
         />
-        <DialogContentText style={{ margin: '20px 0' }}>
-          Please also include a link to the coin&apos;s official website.
-        </DialogContentText>
-        <TextField
-          onChange={onLinkChange}
+        {!user && <TextField
+          onChange={onChangeMail}
           autoComplete="off"
-          label="Link"
+          label="Enter your email"
           fullWidth
           variant="outlined"
-        />
+          sx={{marginTop: '20px'}}
+        />}
       </DialogContent>
       <DialogActions>
         <div style={{ padding: '10px' }}>
@@ -82,11 +82,11 @@ const RequestCoinDialog = function requestCoinMaterialDialog({ open, onClose }) 
         <div style={{ padding: '10px' }}>
           <LoadingButton
             loading={loading}
-            disabled={!coin || !link}
-            onClick={request}
+            disabled={!question}
+            onClick={report}
             variant="contained"
           >
-            Request
+            Submit
           </LoadingButton>
         </div>
       </DialogActions>
@@ -94,9 +94,10 @@ const RequestCoinDialog = function requestCoinMaterialDialog({ open, onClose }) 
   );
 };
 
-RequestCoinDialog.propTypes = {
-  onClose: CustomPropTypes.func.isRequired,
+SupportDialog.propTypes = {
   open: CustomPropTypes.boolean.isRequired,
+  onClose: CustomPropTypes.func.isRequired,
+  user: CustomPropTypes.user,
 };
 
-export default RequestCoinDialog;
+export default SupportDialog;

@@ -59,7 +59,7 @@ const Coin = function coinInfo({ user, predictions, bitcoinMarketCap }) {
           />
         </div>
       )}
-      <Footer />
+      <Footer user={user} />
     </PageContainer>
   );
 };
