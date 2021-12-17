@@ -15,7 +15,7 @@ import CustomPropTypes from '../../types/CustomPropTypes';
 const SupportDialog = function supportMaterialDialog({ open, onClose, user }) {
   const [question, setQuestion] = React.useState('');
   const [loading, setLoading] = React.useState(false);
-  const [email, setEmail] = React.useState(user?.email);
+  const [email, setEmail] = React.useState('');
   const db = getFirestore();
 
   const closeDialog = (success=false) => {
@@ -38,7 +38,7 @@ const SupportDialog = function supportMaterialDialog({ open, onClose, user }) {
     await setDoc(doc(db, 'aggregations', 'issues'), {
       open_questions: arrayUnion({
         question,
-        email,
+        email: user ? user.email : email,
         name: user ? user.name : null,
       }),
     }, { merge: true });
@@ -90,7 +90,7 @@ const SupportDialog = function supportMaterialDialog({ open, onClose, user }) {
         <div style={{ padding: '10px' }}>
           <LoadingButton
             loading={loading}
-            disabled={!question}
+            disabled={!question || !email && !user}
             onClick={report}
             variant="contained"
           >
