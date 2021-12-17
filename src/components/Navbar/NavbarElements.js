@@ -6,7 +6,6 @@ import Colors from '../../styles/Colors';
 export const Nav = styled.nav`
     background: ${({ scrollNav }) => (scrollNav ? Colors.black : 'transparent')};
     height: 80px;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

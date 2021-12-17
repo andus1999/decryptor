@@ -11,6 +11,14 @@ import CustomPropTypes from '../../types/CustomPropTypes';
 
 const LogoBanner = function logoBannerSection({ user }) {
   const [showSnackbar, setShowsnackbar] = React.useState(false);
+  const [width, setWidth] = React.useState(null);
+
+  const resize = () => {
+    setWidth(document.getElementById('root').offsetWidth);
+  };
+  window.onresize = resize;
+  React.useEffect(resize, [])
+
   const history = useHistory();
   return (
     <>
@@ -21,7 +29,7 @@ const LogoBanner = function logoBannerSection({ user }) {
         onClose={() => setShowsnackbar(false)}
         message="Successfully signed out."
       />
-      <Nav scrollNav>
+      <Nav scrollNav style={{width}}>
         <NavbarContainer>
           <div style={{
             display: 'flex',

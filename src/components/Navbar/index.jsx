@@ -20,6 +20,13 @@ import {
 const Navbar = function navBarComponent({ toggle, user }) {
   const [scrollNav, setScrollNav] = useState(false);
   const [showSnackbar, setShowsnackbar] = useState(false);
+  const [width, setWidth] = React.useState(null);
+
+  const resize = () => {
+    setWidth(document.getElementById('root').offsetWidth);
+  };
+  window.onresize = resize;
+  React.useEffect(resize, [])
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -49,7 +56,7 @@ const Navbar = function navBarComponent({ toggle, user }) {
         onClose={() => setShowsnackbar(false)}
         message="Successfully signed out."
       />
-      <Nav scrollNav={scrollNav}>
+      <Nav scrollNav={scrollNav} style={{width}}>
         <NavbarContainer>
           <NavLogo to="/" onClick={toggleHome}>
             decryptor
