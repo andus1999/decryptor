@@ -19,7 +19,7 @@ const CoinOverview = function coinOverviewPage({ predictionData, metaData, bitco
     : number.toPrecision(2));
   const currency = predictionData.name;
   const predictionDate = new Date(predictionData.prediction.timestamp * 1000).toLocaleDateString();
-  const currentDate = new Date(predictionData.market_data.timestamp * 1000).toLocaleDateString();
+  const currentDate = new Date((predictionData.market_data.timestamp + 24 * 3600) * 1000).toLocaleDateString();
   const current = predictionData.market_data.close;
   const currentPrice = formatNumber(current);
   const predictionPrice = formatNumber(current * (1 + predictionData.prediction.average));
