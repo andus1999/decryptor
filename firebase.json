@@ -8,6 +8,10 @@
     ],
     "rewrites": [
       {
+        "source": "/.well-known/acme-challenge/2qzbS85wg82lw4UacrdNYnrdZNdJT-08gnpHzKoVtgE",
+        "destination": "/acme.txt"
+      },
+      {
         "source": "/api/v1/**",
         "function": "api1"
       },
