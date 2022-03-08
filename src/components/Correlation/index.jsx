@@ -35,17 +35,17 @@ const Correlation = function correlationSection({ modelData }) {
               value of -1 means perfect negative correlation.
               The current test set correlation is
               {' '}
-              {roundNumber(modelData.correlation_data.at(-1).correlation)}
+              {roundNumber(modelData.correlation_data.at(-1).test_correlation)}
               .
               The best correlation ever achieved on the validation set was
               {' '}
-              {roundNumber(modelData.correlation_data.at(-1).valCorrelation)}
+              {roundNumber(modelData.correlation_data.at(-1).max_val_correlation)}
               .
             </p>
           ) : (
-            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <CircularProgress />
-              </div>)}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <CircularProgress />
+            </div>)}
         </div>
         <CorrelationGraph modelData={modelData} />
       </div>
